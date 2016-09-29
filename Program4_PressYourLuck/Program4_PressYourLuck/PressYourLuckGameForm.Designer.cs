@@ -1,6 +1,6 @@
 ﻿namespace Program4_PressYourLuck
 {
-    partial class Form1
+    partial class GameBoardForm
     {
         /// <summary>
         /// Required designer variable.
