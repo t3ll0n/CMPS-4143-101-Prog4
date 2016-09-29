@@ -46,14 +46,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameBoardForm.cs">
+    <Compile Include="Game.cs" />
+    <Compile Include="IGame.cs" />
+    <Compile Include="IPlayer.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="PressYourLuckGameForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GameBoardForm.Designer.cs">
-      <DependentUpon>GameBoardForm.cs</DependentUpon>
+    <Compile Include="PressYourLuckGameForm.Designer.cs">
+      <DependentUpon>PressYourLuckGameForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program4_PressYourLuck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="PressYourLuckGameForm.resx">
+      <DependentUpon>PressYourLuckGameForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
