@@ -24,8 +24,7 @@ namespace Program4_PressYourLuck
             else
             {
                 cash += x;
-            }
-            
+            }            
         }
 
         public void updateSpins(int x)
@@ -46,5 +45,6 @@ namespace Program4_PressYourLuck
         //variables
         private int cash;
         private int spins;
+        private string name;
     }
 }
