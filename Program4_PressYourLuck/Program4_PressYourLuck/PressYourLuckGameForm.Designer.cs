@@ -246,6 +246,7 @@
             // startButton
             // 
             this.startButton.BackColor = System.Drawing.Color.Blue;
+            this.startButton.Cursor = System.Windows.Forms.Cursors.Default;
             this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startButton.ForeColor = System.Drawing.Color.Yellow;
             this.startButton.Location = new System.Drawing.Point(119, 457);
@@ -286,8 +287,8 @@
             this.player1GroupBox.Controls.Add(this.player1ScoreLabel);
             this.player1GroupBox.Controls.Add(this.player1SpinsLabel);
             this.player1GroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player1GroupBox.ForeColor = System.Drawing.Color.Yellow;
-            this.player1GroupBox.Location = new System.Drawing.Point(555, 21);
+            this.player1GroupBox.ForeColor = System.Drawing.Color.Red;
+            this.player1GroupBox.Location = new System.Drawing.Point(538, 21);
             this.player1GroupBox.Name = "player1GroupBox";
             this.player1GroupBox.Size = new System.Drawing.Size(200, 98);
             this.player1GroupBox.TabIndex = 42;
@@ -337,7 +338,7 @@
             this.player2GroupBox.Controls.Add(this.player2SpinsLabel);
             this.player2GroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.player2GroupBox.ForeColor = System.Drawing.Color.Yellow;
-            this.player2GroupBox.Location = new System.Drawing.Point(555, 138);
+            this.player2GroupBox.Location = new System.Drawing.Point(538, 134);
             this.player2GroupBox.Name = "player2GroupBox";
             this.player2GroupBox.Size = new System.Drawing.Size(200, 98);
             this.player2GroupBox.TabIndex = 43;
@@ -386,13 +387,13 @@
             this.player3GroupBox.Controls.Add(this.player3ScoreLabel);
             this.player3GroupBox.Controls.Add(this.player3SpinsLabel);
             this.player3GroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player3GroupBox.ForeColor = System.Drawing.Color.Yellow;
-            this.player3GroupBox.Location = new System.Drawing.Point(555, 252);
+            this.player3GroupBox.ForeColor = System.Drawing.Color.Blue;
+            this.player3GroupBox.Location = new System.Drawing.Point(538, 252);
             this.player3GroupBox.Name = "player3GroupBox";
             this.player3GroupBox.Size = new System.Drawing.Size(200, 98);
             this.player3GroupBox.TabIndex = 44;
             this.player3GroupBox.TabStop = false;
-            this.player3GroupBox.Text = "Player 1";
+            this.player3GroupBox.Text = "Player 3";
             this.player3GroupBox.Visible = false;
             // 
             // player3ScoreTextBox
@@ -436,7 +437,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(811, 565);
+            this.ClientSize = new System.Drawing.Size(754, 565);
             this.Controls.Add(this.player3GroupBox);
             this.Controls.Add(this.player2GroupBox);
             this.Controls.Add(this.player1GroupBox);
