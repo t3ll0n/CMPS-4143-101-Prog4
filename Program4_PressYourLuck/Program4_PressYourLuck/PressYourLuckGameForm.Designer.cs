@@ -267,6 +267,7 @@
             this.howToPlayButton.TabIndex = 40;
             this.howToPlayButton.Text = "HOW TO PLAY";
             this.howToPlayButton.UseVisualStyleBackColor = false;
+            this.howToPlayButton.Click += new System.EventHandler(this.howToPlayButton_Click);
             // 
             // quitGameButton
             // 
@@ -279,6 +280,7 @@
             this.quitGameButton.TabIndex = 41;
             this.quitGameButton.Text = "QUIT GAME";
             this.quitGameButton.UseVisualStyleBackColor = false;
+            this.quitGameButton.Click += new System.EventHandler(this.quitGameButton_Click);
             // 
             // player1GroupBox
             // 
@@ -344,6 +346,7 @@
             this.player2GroupBox.TabIndex = 43;
             this.player2GroupBox.TabStop = false;
             this.player2GroupBox.Text = "Player 2";
+            this.player2GroupBox.Visible = false;
             // 
             // player2ScoreTextBox
             // 
