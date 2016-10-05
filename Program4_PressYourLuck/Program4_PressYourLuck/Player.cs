@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Program4_PressYourLuck
 {
-    class Player : IPlayer
+    class Player
     {
         public Player()
         {
@@ -32,19 +32,39 @@ namespace Program4_PressYourLuck
             spins += x;
         }
 
-        public int getCash()
+        public int Cash
         {
-            return cash;
+            //returns the amount of cash the user has
+            get
+            {
+                return cash;
+            }
+
+            //Sets cash to vlaue if greater than 0, else do not change cash
+            set
+            {
+                this.cash = value < 0? this.cash:value;
+            }
         }
 
-        public int getSpins()
+        public int Spins
         {
-            return spins;
+            //returns number of spins
+            get
+            {
+                return spins;
+            }
+
+            //Sets cash to vlaue if greater than 0, else do not change spins
+            set
+            {
+                this.spins = value < 0? this.spins:value;
+            }
+            
         }
 
         //variables
         private int cash;
         private int spins;
-        private string name;
     }
 }

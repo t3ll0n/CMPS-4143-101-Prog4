@@ -28,6 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.startButton = new System.Windows.Forms.Button();
+            this.howToPlayButton = new System.Windows.Forms.Button();
+            this.quitGameButton = new System.Windows.Forms.Button();
+            this.player1GroupBox = new System.Windows.Forms.GroupBox();
+            this.player1ScoreTextBox = new System.Windows.Forms.TextBox();
+            this.player1SpinsTextBox = new System.Windows.Forms.TextBox();
+            this.player1ScoreLabel = new System.Windows.Forms.Label();
+            this.player1SpinsLabel = new System.Windows.Forms.Label();
+            this.player2GroupBox = new System.Windows.Forms.GroupBox();
+            this.player2ScoreTextBox = new System.Windows.Forms.TextBox();
+            this.player2SpinsTextBox = new System.Windows.Forms.TextBox();
+            this.player2ScoreLabel = new System.Windows.Forms.Label();
+            this.player2SpinsLabel = new System.Windows.Forms.Label();
+            this.player3GroupBox = new System.Windows.Forms.GroupBox();
+            this.player3ScoreTextBox = new System.Windows.Forms.TextBox();
+            this.player3SpinsTextBox = new System.Windows.Forms.TextBox();
+            this.player3ScoreLabel = new System.Windows.Forms.Label();
+            this.player3SpinsLabel = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -47,24 +65,10 @@
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.startButton = new System.Windows.Forms.Button();
-            this.howToPlayButton = new System.Windows.Forms.Button();
-            this.quitGameButton = new System.Windows.Forms.Button();
-            this.player1GroupBox = new System.Windows.Forms.GroupBox();
-            this.player1SpinsLabel = new System.Windows.Forms.Label();
-            this.player1ScoreLabel = new System.Windows.Forms.Label();
-            this.player1SpinsTextBox = new System.Windows.Forms.TextBox();
-            this.player1ScoreTextBox = new System.Windows.Forms.TextBox();
-            this.player2GroupBox = new System.Windows.Forms.GroupBox();
-            this.player2ScoreTextBox = new System.Windows.Forms.TextBox();
-            this.player2SpinsTextBox = new System.Windows.Forms.TextBox();
-            this.player2ScoreLabel = new System.Windows.Forms.Label();
-            this.player2SpinsLabel = new System.Windows.Forms.Label();
-            this.player3GroupBox = new System.Windows.Forms.GroupBox();
-            this.player3ScoreTextBox = new System.Windows.Forms.TextBox();
-            this.player3SpinsTextBox = new System.Windows.Forms.TextBox();
-            this.player3ScoreLabel = new System.Windows.Forms.Label();
-            this.player3SpinsLabel = new System.Windows.Forms.Label();
+            this.settingbutton = new System.Windows.Forms.Button();
+            this.player1GroupBox.SuspendLayout();
+            this.player2GroupBox.SuspendLayout();
+            this.player3GroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -84,10 +88,203 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            this.player1GroupBox.SuspendLayout();
-            this.player2GroupBox.SuspendLayout();
-            this.player3GroupBox.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // startButton
+            // 
+            this.startButton.BackColor = System.Drawing.Color.Blue;
+            this.startButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.startButton.Enabled = false;
+            this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startButton.ForeColor = System.Drawing.Color.Yellow;
+            this.startButton.Location = new System.Drawing.Point(119, 457);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(80, 80);
+            this.startButton.TabIndex = 39;
+            this.startButton.Text = "START GAME";
+            this.startButton.UseVisualStyleBackColor = false;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
+            // 
+            // howToPlayButton
+            // 
+            this.howToPlayButton.BackColor = System.Drawing.Color.Blue;
+            this.howToPlayButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.howToPlayButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.howToPlayButton.ForeColor = System.Drawing.Color.Yellow;
+            this.howToPlayButton.Location = new System.Drawing.Point(225, 457);
+            this.howToPlayButton.Name = "howToPlayButton";
+            this.howToPlayButton.Size = new System.Drawing.Size(80, 80);
+            this.howToPlayButton.TabIndex = 40;
+            this.howToPlayButton.Text = "HOW TO PLAY";
+            this.howToPlayButton.UseVisualStyleBackColor = false;
+            this.howToPlayButton.Click += new System.EventHandler(this.howToPlayButton_Click);
+            // 
+            // quitGameButton
+            // 
+            this.quitGameButton.BackColor = System.Drawing.Color.Blue;
+            this.quitGameButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.quitGameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitGameButton.ForeColor = System.Drawing.Color.Yellow;
+            this.quitGameButton.Location = new System.Drawing.Point(328, 457);
+            this.quitGameButton.Name = "quitGameButton";
+            this.quitGameButton.Size = new System.Drawing.Size(80, 80);
+            this.quitGameButton.TabIndex = 41;
+            this.quitGameButton.Text = "QUIT GAME";
+            this.quitGameButton.UseVisualStyleBackColor = false;
+            this.quitGameButton.Click += new System.EventHandler(this.quitGameButton_Click);
+            // 
+            // player1GroupBox
+            // 
+            this.player1GroupBox.Controls.Add(this.player1ScoreTextBox);
+            this.player1GroupBox.Controls.Add(this.player1SpinsTextBox);
+            this.player1GroupBox.Controls.Add(this.player1ScoreLabel);
+            this.player1GroupBox.Controls.Add(this.player1SpinsLabel);
+            this.player1GroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.player1GroupBox.ForeColor = System.Drawing.Color.Red;
+            this.player1GroupBox.Location = new System.Drawing.Point(538, 21);
+            this.player1GroupBox.Name = "player1GroupBox";
+            this.player1GroupBox.Size = new System.Drawing.Size(200, 98);
+            this.player1GroupBox.TabIndex = 42;
+            this.player1GroupBox.TabStop = false;
+            this.player1GroupBox.Text = "Player 1";
+            // 
+            // player1ScoreTextBox
+            // 
+            this.player1ScoreTextBox.Location = new System.Drawing.Point(73, 54);
+            this.player1ScoreTextBox.Name = "player1ScoreTextBox";
+            this.player1ScoreTextBox.ReadOnly = true;
+            this.player1ScoreTextBox.Size = new System.Drawing.Size(100, 22);
+            this.player1ScoreTextBox.TabIndex = 3;
+            // 
+            // player1SpinsTextBox
+            // 
+            this.player1SpinsTextBox.Location = new System.Drawing.Point(73, 17);
+            this.player1SpinsTextBox.Name = "player1SpinsTextBox";
+            this.player1SpinsTextBox.Size = new System.Drawing.Size(100, 22);
+            this.player1SpinsTextBox.TabIndex = 2;
+            // 
+            // player1ScoreLabel
+            // 
+            this.player1ScoreLabel.AutoSize = true;
+            this.player1ScoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.player1ScoreLabel.Location = new System.Drawing.Point(20, 54);
+            this.player1ScoreLabel.Name = "player1ScoreLabel";
+            this.player1ScoreLabel.Size = new System.Drawing.Size(48, 15);
+            this.player1ScoreLabel.TabIndex = 1;
+            this.player1ScoreLabel.Text = "Score:";
+            // 
+            // player1SpinsLabel
+            // 
+            this.player1SpinsLabel.AutoSize = true;
+            this.player1SpinsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.player1SpinsLabel.Location = new System.Drawing.Point(20, 20);
+            this.player1SpinsLabel.Name = "player1SpinsLabel";
+            this.player1SpinsLabel.Size = new System.Drawing.Size(47, 15);
+            this.player1SpinsLabel.TabIndex = 0;
+            this.player1SpinsLabel.Text = "Spins:";
+            // 
+            // player2GroupBox
+            // 
+            this.player2GroupBox.Controls.Add(this.player2ScoreTextBox);
+            this.player2GroupBox.Controls.Add(this.player2SpinsTextBox);
+            this.player2GroupBox.Controls.Add(this.player2ScoreLabel);
+            this.player2GroupBox.Controls.Add(this.player2SpinsLabel);
+            this.player2GroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.player2GroupBox.ForeColor = System.Drawing.Color.Yellow;
+            this.player2GroupBox.Location = new System.Drawing.Point(538, 134);
+            this.player2GroupBox.Name = "player2GroupBox";
+            this.player2GroupBox.Size = new System.Drawing.Size(200, 98);
+            this.player2GroupBox.TabIndex = 43;
+            this.player2GroupBox.TabStop = false;
+            this.player2GroupBox.Text = "Player 2";
+            this.player2GroupBox.Visible = false;
+            // 
+            // player2ScoreTextBox
+            // 
+            this.player2ScoreTextBox.Location = new System.Drawing.Point(73, 54);
+            this.player2ScoreTextBox.Name = "player2ScoreTextBox";
+            this.player2ScoreTextBox.ReadOnly = true;
+            this.player2ScoreTextBox.Size = new System.Drawing.Size(100, 22);
+            this.player2ScoreTextBox.TabIndex = 3;
+            // 
+            // player2SpinsTextBox
+            // 
+            this.player2SpinsTextBox.Location = new System.Drawing.Point(73, 17);
+            this.player2SpinsTextBox.Name = "player2SpinsTextBox";
+            this.player2SpinsTextBox.Size = new System.Drawing.Size(100, 22);
+            this.player2SpinsTextBox.TabIndex = 2;
+            // 
+            // player2ScoreLabel
+            // 
+            this.player2ScoreLabel.AutoSize = true;
+            this.player2ScoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.player2ScoreLabel.Location = new System.Drawing.Point(20, 54);
+            this.player2ScoreLabel.Name = "player2ScoreLabel";
+            this.player2ScoreLabel.Size = new System.Drawing.Size(48, 15);
+            this.player2ScoreLabel.TabIndex = 1;
+            this.player2ScoreLabel.Text = "Score:";
+            // 
+            // player2SpinsLabel
+            // 
+            this.player2SpinsLabel.AutoSize = true;
+            this.player2SpinsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.player2SpinsLabel.Location = new System.Drawing.Point(20, 20);
+            this.player2SpinsLabel.Name = "player2SpinsLabel";
+            this.player2SpinsLabel.Size = new System.Drawing.Size(47, 15);
+            this.player2SpinsLabel.TabIndex = 0;
+            this.player2SpinsLabel.Text = "Spins:";
+            // 
+            // player3GroupBox
+            // 
+            this.player3GroupBox.Controls.Add(this.player3ScoreTextBox);
+            this.player3GroupBox.Controls.Add(this.player3SpinsTextBox);
+            this.player3GroupBox.Controls.Add(this.player3ScoreLabel);
+            this.player3GroupBox.Controls.Add(this.player3SpinsLabel);
+            this.player3GroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.player3GroupBox.ForeColor = System.Drawing.Color.Blue;
+            this.player3GroupBox.Location = new System.Drawing.Point(538, 252);
+            this.player3GroupBox.Name = "player3GroupBox";
+            this.player3GroupBox.Size = new System.Drawing.Size(200, 98);
+            this.player3GroupBox.TabIndex = 44;
+            this.player3GroupBox.TabStop = false;
+            this.player3GroupBox.Text = "Player 3";
+            this.player3GroupBox.Visible = false;
+            // 
+            // player3ScoreTextBox
+            // 
+            this.player3ScoreTextBox.Location = new System.Drawing.Point(73, 54);
+            this.player3ScoreTextBox.Name = "player3ScoreTextBox";
+            this.player3ScoreTextBox.ReadOnly = true;
+            this.player3ScoreTextBox.Size = new System.Drawing.Size(100, 22);
+            this.player3ScoreTextBox.TabIndex = 3;
+            // 
+            // player3SpinsTextBox
+            // 
+            this.player3SpinsTextBox.AcceptsReturn = true;
+            this.player3SpinsTextBox.Location = new System.Drawing.Point(73, 17);
+            this.player3SpinsTextBox.Name = "player3SpinsTextBox";
+            this.player3SpinsTextBox.Size = new System.Drawing.Size(100, 22);
+            this.player3SpinsTextBox.TabIndex = 2;
+            // 
+            // player3ScoreLabel
+            // 
+            this.player3ScoreLabel.AutoSize = true;
+            this.player3ScoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.player3ScoreLabel.Location = new System.Drawing.Point(20, 54);
+            this.player3ScoreLabel.Name = "player3ScoreLabel";
+            this.player3ScoreLabel.Size = new System.Drawing.Size(48, 15);
+            this.player3ScoreLabel.TabIndex = 1;
+            this.player3ScoreLabel.Text = "Score:";
+            // 
+            // player3SpinsLabel
+            // 
+            this.player3SpinsLabel.AutoSize = true;
+            this.player3SpinsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.player3SpinsLabel.Location = new System.Drawing.Point(20, 20);
+            this.player3SpinsLabel.Name = "player3SpinsLabel";
+            this.player3SpinsLabel.Size = new System.Drawing.Size(47, 15);
+            this.player3SpinsLabel.TabIndex = 0;
+            this.player3SpinsLabel.Text = "Spins:";
             // 
             // pictureBox7
             // 
@@ -243,197 +440,18 @@
             this.pictureBox10.TabIndex = 29;
             this.pictureBox10.TabStop = false;
             // 
-            // startButton
+            // settingbutton
             // 
-            this.startButton.BackColor = System.Drawing.Color.Blue;
-            this.startButton.Cursor = System.Windows.Forms.Cursors.Default;
-            this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startButton.ForeColor = System.Drawing.Color.Yellow;
-            this.startButton.Location = new System.Drawing.Point(119, 457);
-            this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(80, 80);
-            this.startButton.TabIndex = 39;
-            this.startButton.Text = "START GAME";
-            this.startButton.UseVisualStyleBackColor = false;
-            // 
-            // howToPlayButton
-            // 
-            this.howToPlayButton.BackColor = System.Drawing.Color.Blue;
-            this.howToPlayButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.howToPlayButton.ForeColor = System.Drawing.Color.Yellow;
-            this.howToPlayButton.Location = new System.Drawing.Point(225, 457);
-            this.howToPlayButton.Name = "howToPlayButton";
-            this.howToPlayButton.Size = new System.Drawing.Size(80, 80);
-            this.howToPlayButton.TabIndex = 40;
-            this.howToPlayButton.Text = "HOW TO PLAY";
-            this.howToPlayButton.UseVisualStyleBackColor = false;
-            this.howToPlayButton.Click += new System.EventHandler(this.howToPlayButton_Click);
-            // 
-            // quitGameButton
-            // 
-            this.quitGameButton.BackColor = System.Drawing.Color.Blue;
-            this.quitGameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quitGameButton.ForeColor = System.Drawing.Color.Yellow;
-            this.quitGameButton.Location = new System.Drawing.Point(328, 457);
-            this.quitGameButton.Name = "quitGameButton";
-            this.quitGameButton.Size = new System.Drawing.Size(80, 80);
-            this.quitGameButton.TabIndex = 41;
-            this.quitGameButton.Text = "QUIT GAME";
-            this.quitGameButton.UseVisualStyleBackColor = false;
-            this.quitGameButton.Click += new System.EventHandler(this.quitGameButton_Click);
-            // 
-            // player1GroupBox
-            // 
-            this.player1GroupBox.Controls.Add(this.player1ScoreTextBox);
-            this.player1GroupBox.Controls.Add(this.player1SpinsTextBox);
-            this.player1GroupBox.Controls.Add(this.player1ScoreLabel);
-            this.player1GroupBox.Controls.Add(this.player1SpinsLabel);
-            this.player1GroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player1GroupBox.ForeColor = System.Drawing.Color.Red;
-            this.player1GroupBox.Location = new System.Drawing.Point(538, 21);
-            this.player1GroupBox.Name = "player1GroupBox";
-            this.player1GroupBox.Size = new System.Drawing.Size(200, 98);
-            this.player1GroupBox.TabIndex = 42;
-            this.player1GroupBox.TabStop = false;
-            this.player1GroupBox.Text = "Player 1";
-            // 
-            // player1SpinsLabel
-            // 
-            this.player1SpinsLabel.AutoSize = true;
-            this.player1SpinsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player1SpinsLabel.Location = new System.Drawing.Point(20, 20);
-            this.player1SpinsLabel.Name = "player1SpinsLabel";
-            this.player1SpinsLabel.Size = new System.Drawing.Size(47, 15);
-            this.player1SpinsLabel.TabIndex = 0;
-            this.player1SpinsLabel.Text = "Spins:";
-            // 
-            // player1ScoreLabel
-            // 
-            this.player1ScoreLabel.AutoSize = true;
-            this.player1ScoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player1ScoreLabel.Location = new System.Drawing.Point(20, 54);
-            this.player1ScoreLabel.Name = "player1ScoreLabel";
-            this.player1ScoreLabel.Size = new System.Drawing.Size(48, 15);
-            this.player1ScoreLabel.TabIndex = 1;
-            this.player1ScoreLabel.Text = "Score:";
-            // 
-            // player1SpinsTextBox
-            // 
-            this.player1SpinsTextBox.Location = new System.Drawing.Point(73, 17);
-            this.player1SpinsTextBox.Name = "player1SpinsTextBox";
-            this.player1SpinsTextBox.Size = new System.Drawing.Size(100, 22);
-            this.player1SpinsTextBox.TabIndex = 2;
-            // 
-            // player1ScoreTextBox
-            // 
-            this.player1ScoreTextBox.Location = new System.Drawing.Point(73, 54);
-            this.player1ScoreTextBox.Name = "player1ScoreTextBox";
-            this.player1ScoreTextBox.ReadOnly = true;
-            this.player1ScoreTextBox.Size = new System.Drawing.Size(100, 22);
-            this.player1ScoreTextBox.TabIndex = 3;
-            // 
-            // player2GroupBox
-            // 
-            this.player2GroupBox.Controls.Add(this.player2ScoreTextBox);
-            this.player2GroupBox.Controls.Add(this.player2SpinsTextBox);
-            this.player2GroupBox.Controls.Add(this.player2ScoreLabel);
-            this.player2GroupBox.Controls.Add(this.player2SpinsLabel);
-            this.player2GroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player2GroupBox.ForeColor = System.Drawing.Color.Yellow;
-            this.player2GroupBox.Location = new System.Drawing.Point(538, 134);
-            this.player2GroupBox.Name = "player2GroupBox";
-            this.player2GroupBox.Size = new System.Drawing.Size(200, 98);
-            this.player2GroupBox.TabIndex = 43;
-            this.player2GroupBox.TabStop = false;
-            this.player2GroupBox.Text = "Player 2";
-            this.player2GroupBox.Visible = false;
-            // 
-            // player2ScoreTextBox
-            // 
-            this.player2ScoreTextBox.Location = new System.Drawing.Point(73, 54);
-            this.player2ScoreTextBox.Name = "player2ScoreTextBox";
-            this.player2ScoreTextBox.ReadOnly = true;
-            this.player2ScoreTextBox.Size = new System.Drawing.Size(100, 22);
-            this.player2ScoreTextBox.TabIndex = 3;
-            // 
-            // player2SpinsTextBox
-            // 
-            this.player2SpinsTextBox.Location = new System.Drawing.Point(73, 17);
-            this.player2SpinsTextBox.Name = "player2SpinsTextBox";
-            this.player2SpinsTextBox.Size = new System.Drawing.Size(100, 22);
-            this.player2SpinsTextBox.TabIndex = 2;
-            // 
-            // player2ScoreLabel
-            // 
-            this.player2ScoreLabel.AutoSize = true;
-            this.player2ScoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player2ScoreLabel.Location = new System.Drawing.Point(20, 54);
-            this.player2ScoreLabel.Name = "player2ScoreLabel";
-            this.player2ScoreLabel.Size = new System.Drawing.Size(48, 15);
-            this.player2ScoreLabel.TabIndex = 1;
-            this.player2ScoreLabel.Text = "Score:";
-            // 
-            // player2SpinsLabel
-            // 
-            this.player2SpinsLabel.AutoSize = true;
-            this.player2SpinsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player2SpinsLabel.Location = new System.Drawing.Point(20, 20);
-            this.player2SpinsLabel.Name = "player2SpinsLabel";
-            this.player2SpinsLabel.Size = new System.Drawing.Size(47, 15);
-            this.player2SpinsLabel.TabIndex = 0;
-            this.player2SpinsLabel.Text = "Spins:";
-            // 
-            // player3GroupBox
-            // 
-            this.player3GroupBox.Controls.Add(this.player3ScoreTextBox);
-            this.player3GroupBox.Controls.Add(this.player3SpinsTextBox);
-            this.player3GroupBox.Controls.Add(this.player3ScoreLabel);
-            this.player3GroupBox.Controls.Add(this.player3SpinsLabel);
-            this.player3GroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player3GroupBox.ForeColor = System.Drawing.Color.Blue;
-            this.player3GroupBox.Location = new System.Drawing.Point(538, 252);
-            this.player3GroupBox.Name = "player3GroupBox";
-            this.player3GroupBox.Size = new System.Drawing.Size(200, 98);
-            this.player3GroupBox.TabIndex = 44;
-            this.player3GroupBox.TabStop = false;
-            this.player3GroupBox.Text = "Player 3";
-            this.player3GroupBox.Visible = false;
-            // 
-            // player3ScoreTextBox
-            // 
-            this.player3ScoreTextBox.Location = new System.Drawing.Point(73, 54);
-            this.player3ScoreTextBox.Name = "player3ScoreTextBox";
-            this.player3ScoreTextBox.ReadOnly = true;
-            this.player3ScoreTextBox.Size = new System.Drawing.Size(100, 22);
-            this.player3ScoreTextBox.TabIndex = 3;
-            // 
-            // player3SpinsTextBox
-            // 
-            this.player3SpinsTextBox.AcceptsReturn = true;
-            this.player3SpinsTextBox.Location = new System.Drawing.Point(73, 17);
-            this.player3SpinsTextBox.Name = "player3SpinsTextBox";
-            this.player3SpinsTextBox.Size = new System.Drawing.Size(100, 22);
-            this.player3SpinsTextBox.TabIndex = 2;
-            // 
-            // player3ScoreLabel
-            // 
-            this.player3ScoreLabel.AutoSize = true;
-            this.player3ScoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player3ScoreLabel.Location = new System.Drawing.Point(20, 54);
-            this.player3ScoreLabel.Name = "player3ScoreLabel";
-            this.player3ScoreLabel.Size = new System.Drawing.Size(48, 15);
-            this.player3ScoreLabel.TabIndex = 1;
-            this.player3ScoreLabel.Text = "Score:";
-            // 
-            // player3SpinsLabel
-            // 
-            this.player3SpinsLabel.AutoSize = true;
-            this.player3SpinsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player3SpinsLabel.Location = new System.Drawing.Point(20, 20);
-            this.player3SpinsLabel.Name = "player3SpinsLabel";
-            this.player3SpinsLabel.Size = new System.Drawing.Size(47, 15);
-            this.player3SpinsLabel.TabIndex = 0;
-            this.player3SpinsLabel.Text = "Spins:";
+            this.settingbutton.AutoSize = true;
+            this.settingbutton.BackgroundImage = global::Program4_PressYourLuck.Properties.Resources.images;
+            this.settingbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.settingbutton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.settingbutton.Location = new System.Drawing.Point(667, 478);
+            this.settingbutton.Name = "settingbutton";
+            this.settingbutton.Size = new System.Drawing.Size(75, 75);
+            this.settingbutton.TabIndex = 45;
+            this.settingbutton.UseVisualStyleBackColor = true;
+            this.settingbutton.Click += new System.EventHandler(this.settingbutton_Click_1);
             // 
             // PressYourLuckGameForm
             // 
@@ -441,6 +459,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(754, 565);
+            this.Controls.Add(this.settingbutton);
             this.Controls.Add(this.player3GroupBox);
             this.Controls.Add(this.player2GroupBox);
             this.Controls.Add(this.player1GroupBox);
@@ -468,6 +487,12 @@
             this.Controls.Add(this.pictureBox10);
             this.Name = "PressYourLuckGameForm";
             this.Text = "Press Your Luck";
+            this.player1GroupBox.ResumeLayout(false);
+            this.player1GroupBox.PerformLayout();
+            this.player2GroupBox.ResumeLayout(false);
+            this.player2GroupBox.PerformLayout();
+            this.player3GroupBox.ResumeLayout(false);
+            this.player3GroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -487,13 +512,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            this.player1GroupBox.ResumeLayout(false);
-            this.player1GroupBox.PerformLayout();
-            this.player2GroupBox.ResumeLayout(false);
-            this.player2GroupBox.PerformLayout();
-            this.player3GroupBox.ResumeLayout(false);
-            this.player3GroupBox.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -536,6 +556,7 @@
         private System.Windows.Forms.TextBox player3SpinsTextBox;
         private System.Windows.Forms.Label player3ScoreLabel;
         private System.Windows.Forms.Label player3SpinsLabel;
+        private System.Windows.Forms.Button settingbutton;
     }
 }
 

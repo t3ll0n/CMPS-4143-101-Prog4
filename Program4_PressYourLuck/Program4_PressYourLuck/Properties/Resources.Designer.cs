@@ -63,9 +63,29 @@ namespace Program4_PressYourLuck.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap images {
+            get {
+                object obj = ResourceManager.GetObject("images", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PressYourLuck {
             get {
                 object obj = ResourceManager.GetObject("PressYourLuck", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tollbox {
+            get {
+                object obj = ResourceManager.GetObject("tollbox", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
