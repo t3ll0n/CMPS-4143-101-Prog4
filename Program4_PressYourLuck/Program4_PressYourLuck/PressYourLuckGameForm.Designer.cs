@@ -66,9 +66,10 @@
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.settingbutton = new System.Windows.Forms.Button();
-            this.pass_spins = new System.Windows.Forms.Button();
+            this.passSpinsButton = new System.Windows.Forms.Button();
             this.round_label = new System.Windows.Forms.Label();
             this.winner_label = new System.Windows.Forms.Label();
+            this.startStopSpinButton = new System.Windows.Forms.Button();
             this.player1GroupBox.SuspendLayout();
             this.player2GroupBox.SuspendLayout();
             this.player3GroupBox.SuspendLayout();
@@ -492,24 +493,24 @@
             this.settingbutton.UseVisualStyleBackColor = true;
             this.settingbutton.Click += new System.EventHandler(this.settingbutton_Click_1);
             // 
-            // pass_spins
+            // passSpinsButton
             // 
-            this.pass_spins.BackColor = System.Drawing.Color.Blue;
-            this.pass_spins.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pass_spins.Enabled = false;
-            this.pass_spins.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pass_spins.ForeColor = System.Drawing.Color.Yellow;
-            this.pass_spins.Location = new System.Drawing.Point(561, 366);
-            this.pass_spins.Name = "pass_spins";
-            this.pass_spins.Size = new System.Drawing.Size(80, 80);
-            this.pass_spins.TabIndex = 46;
-            this.pass_spins.Text = "PASS SPINS";
-            this.pass_spins.UseVisualStyleBackColor = false;
-            this.pass_spins.Click += new System.EventHandler(this.pass_spins_Click);
+            this.passSpinsButton.BackColor = System.Drawing.Color.Blue;
+            this.passSpinsButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.passSpinsButton.Enabled = false;
+            this.passSpinsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passSpinsButton.ForeColor = System.Drawing.Color.Yellow;
+            this.passSpinsButton.Location = new System.Drawing.Point(658, 382);
+            this.passSpinsButton.Name = "passSpinsButton";
+            this.passSpinsButton.Size = new System.Drawing.Size(80, 80);
+            this.passSpinsButton.TabIndex = 46;
+            this.passSpinsButton.Text = "PASS SPINS";
+            this.passSpinsButton.UseVisualStyleBackColor = false;
+            this.passSpinsButton.Click += new System.EventHandler(this.pass_spins_Click);
             // 
             // round_label
             // 
-            this.round_label.Location = new System.Drawing.Point(647, 388);
+            this.round_label.Location = new System.Drawing.Point(596, 356);
             this.round_label.Name = "round_label";
             this.round_label.Size = new System.Drawing.Size(100, 23);
             this.round_label.TabIndex = 47;
@@ -521,15 +522,31 @@
             this.winner_label.Size = new System.Drawing.Size(100, 23);
             this.winner_label.TabIndex = 48;
             // 
+            // startStopSpinButton
+            // 
+            this.startStopSpinButton.BackColor = System.Drawing.Color.Blue;
+            this.startStopSpinButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.startStopSpinButton.Enabled = false;
+            this.startStopSpinButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startStopSpinButton.ForeColor = System.Drawing.Color.Yellow;
+            this.startStopSpinButton.Location = new System.Drawing.Point(555, 382);
+            this.startStopSpinButton.Name = "startStopSpinButton";
+            this.startStopSpinButton.Size = new System.Drawing.Size(80, 80);
+            this.startStopSpinButton.TabIndex = 49;
+            this.startStopSpinButton.Text = "START SPIN";
+            this.startStopSpinButton.UseVisualStyleBackColor = false;
+            this.startStopSpinButton.Click += new System.EventHandler(this.startStopSpinButton_Click);
+            // 
             // PressYourLuckGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(754, 565);
+            this.Controls.Add(this.startStopSpinButton);
             this.Controls.Add(this.winner_label);
             this.Controls.Add(this.round_label);
-            this.Controls.Add(this.pass_spins);
+            this.Controls.Add(this.passSpinsButton);
             this.Controls.Add(this.settingbutton);
             this.Controls.Add(this.player3GroupBox);
             this.Controls.Add(this.player2GroupBox);
@@ -628,9 +645,10 @@
         private System.Windows.Forms.Label player3ScoreLabel;
         private System.Windows.Forms.Label player3SpinsLabel;
         private System.Windows.Forms.Button settingbutton;
-        private System.Windows.Forms.Button pass_spins;
+        private System.Windows.Forms.Button passSpinsButton;
         private System.Windows.Forms.Label round_label;
         private System.Windows.Forms.Label winner_label;
+        private System.Windows.Forms.Button startStopSpinButton;
     }
 }
 

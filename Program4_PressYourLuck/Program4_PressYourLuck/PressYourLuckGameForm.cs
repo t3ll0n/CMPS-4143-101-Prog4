@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,22 +15,63 @@ namespace Program4_PressYourLuck
 {
     public partial class PressYourLuckGameForm : Form
     {
+        private const int NUM_SPACES = 18;
+
+        //class variables
+
         int numplayers = 0;
         int numrounds = 1;
         int maxrounds = 2;
         Setup setup = new Setup(); //create instance of setup form
 
         Player player1 = new Player(), player2 = new Player(),
-        player3 = new Player(),who; //create 3 instances for 3 players and 
+        player3 = new Player(), who; //create 3 instances for 3 players and 
         //instance to track active player
 
         //create instance of gameTrivia form
-        GameTrivia gametrivia = new GameTrivia(); 
+        GameTrivia gametrivia = new GameTrivia();
+
+        //Image directory
+        private string imageDir = @"..\..\images\gameboard";
+        //random number generator 
+        private Random rand = new Random();
+        //list to hold all picture boxes****
+        private List<PictureBox> pictureBoxes = new List<PictureBox>();
+        //list to hold all images****
+        private List<Image> imageList = new List<Image>();
+        //list to contain image file names (runs parallel to imageList)****
+        private List<String> imageNames = new List<String>();
+        //assembly reference****
+        private Assembly assembly;
+        //integer to store the index of the currently selected picturebox****
+        private int pictureBoxIndex = 0;
+        //declaring thread for cursor randomization*******
+        //System.Threading.Thread randomCursorThread; //*******
+        //variable to control spins
+        private bool spin = false;
+
+        //regular expression to be used in deciding value of image
+        private Regex regValue = new Regex(@"[0-9]*0", RegexOptions.IgnoreCase);
+
 
         public PressYourLuckGameForm()
         {
             InitializeComponent();
             MessageBox.Show("Please run the set-up and fill out all fields.");
+
+            addPictureBoxes();
+
+            //get the current assembly****
+            assembly = Assembly.GetExecutingAssembly();
+
+            //store all resource names associated with the executing assembly which end in "_GameBoardImage.png" in a list****
+            imageNames = Assembly.GetExecutingAssembly().GetManifestResourceNames().Where(x => x.EndsWith(".png")).ToList();
+
+            //add images to image list
+            imageList = Directory.GetFiles(imageDir, "*.png", SearchOption.AllDirectories).Select(Image.FromFile).ToList();
+
+            //randomly populate gameboard picture boxes with images on form load****
+            populatePictureBoxes();
         }
 
         private void quitGameButton_Click(object sender, EventArgs e)
@@ -45,6 +89,28 @@ namespace Program4_PressYourLuck
             playerInit();
         }
 
+        //Purpose: add game board picture boxes to a list(except the center picture box) 
+        //Requires: picture box list
+        //Returns: picture box list with picture boxes
+        private void addPictureBoxes()
+        {
+            for (int i = 1; i <= NUM_SPACES; i++)
+            {
+                pictureBoxes.Add((PictureBox)Controls.Find("pictureBox" + i, true)[0]);
+            }
+        }
+
+        //Purpose: randomly populate gameboard picture boxes with images***** 
+        //Requires: picture box list and image list
+        //Returns: populated picuture boxes on game board
+        private void populatePictureBoxes()
+        {
+            foreach (PictureBox p in pictureBoxes)
+            {
+                p.Image = imageList.ElementAt(rand.Next(0, imageList.Count));
+            }
+        }
+
         //Purpose: initialises game with players entered in setup form
         //Requires: none
         //Returns: none
@@ -54,7 +120,7 @@ namespace Program4_PressYourLuck
             setup.getNumPlayers(ref numplayers);
 
             //error checking to ensure that user went through set-up
-            if(setup.File_Path == "")
+            if (setup.File_Path == "")
             {
                 MessageBox.Show("Error, please run the set-up and" +
                     " select an input file. The program will now exit");
@@ -62,7 +128,7 @@ namespace Program4_PressYourLuck
             }
 
             //activate score menu or correspondiing number of players
-            if(numplayers == 2)
+            if (numplayers == 2)
             {
                 player2GroupBox.Visible = true;
             }
@@ -87,14 +153,15 @@ namespace Program4_PressYourLuck
 
             do
             {
-                pass_spins.Enabled = true;
+                startStopSpinButton.Enabled = true;
+                passSpinsButton.Enabled = true;
                 round_label.Text = "Round " + numrounds;
                 questionPlayers();
-             
+
                 //donate spins to players if they leave 
                 //trivia section without spins
-                if(player1.Spins == 0 || (player1.Spins == 0 && 
-                    player2.Spins == 0) || (player1.Spins == 0 && 
+                if (player1.Spins == 0 || (player1.Spins == 0 &&
+                    player2.Spins == 0) || (player1.Spins == 0 &&
                     player2.Spins == 0 && player3.Spins == 0))
                 {
                     player1.Spins = 1;
@@ -114,8 +181,8 @@ namespace Program4_PressYourLuck
                 }
                 else
                     who = player3;
-    
-                if(numplayers == 3)
+
+                if (numplayers == 3)
                 {
                     if (player1.Cash > player2.Cash && player1.Cash >
                         player3.Cash)
@@ -147,11 +214,11 @@ namespace Program4_PressYourLuck
                 else
                 {
                     winner_label.Text = "Thanks for playing player1";
-                    pass_spins.Enabled = false; 
+                    passSpinsButton.Enabled = false;
                 }
-               numrounds++;
-             }
-             while (numrounds < maxrounds);
+                numrounds++;
+            }
+            while (numrounds < maxrounds);
         }
 
         private void settingbutton_Click_1(object sender, EventArgs e)
@@ -166,7 +233,7 @@ namespace Program4_PressYourLuck
         private void updateCash()
         {
             if (player1GroupBox.Visible == true &&
-                player2GroupBox.Visible == true && 
+                player2GroupBox.Visible == true &&
                 player3GroupBox.Visible == false)
             {
                 player1ScoreTextBox.Text = player1.Cash.ToString("C");
@@ -237,6 +304,38 @@ namespace Program4_PressYourLuck
             updateSpins();
         }
 
+        private void startStopSpinButton_Click(object sender, EventArgs e)
+        {
+            //after the start button is pressed, the text will be changed to "Stop!"*********
+            if (startStopSpinButton.Text == "START SPIN")
+            {
+                pictureBoxes.ElementAt(pictureBoxIndex).BackColor = Color.Transparent;
+                startStopSpinButton.Text = "STOP SPIN!";
+
+                //declaring thread for cursor randomization
+                System.Threading.Thread randomCursorThread;
+                randomCursorThread = new System.Threading.Thread(new System.Threading.ThreadStart(RandomCursor));
+                randomCursorThread.Start(); //begin randomCursorThread
+            }
+            else //StartStopButton.Text = "Stop!"*******
+            {
+                startStopSpinButton.Text = "START SPIN";
+                spin = true;
+                System.Threading.Thread.Sleep(400); //give the thread time to get the message
+                spin = false;
+                //players.ElementAt(getPlayer() - 1).decrementSpins();
+                // updatePlayerTurnLabel();
+                // updatePlayerScoreLabels();
+                //if no players have any remaining spins, announce the winner; game over
+                // if (getPlayer() < 0)
+                //{
+                //     announceWinner();
+                //    this.Close();
+                // }
+                //}
+            }
+        }
+
         //Purpose: Question players
         //Requires: instance of player class
         //Returns: none
@@ -252,7 +351,7 @@ namespace Program4_PressYourLuck
         //Returns: none
         private void pass_spins_Click(object sender, EventArgs e)
         {
-            if(numplayers == 2)
+            if (numplayers == 2)
             {
                 if (who == player1)
                 {
@@ -261,7 +360,7 @@ namespace Program4_PressYourLuck
                 else
                     passSpin(player2, player1);
             }
-            else if(numplayers == 3)
+            else if (numplayers == 3)
             {
                 if (who == player2)
                     passSpin(player2, player3);
@@ -282,6 +381,77 @@ namespace Program4_PressYourLuck
             p2.Spins += p1.Spins;
             p1.Spins = 0;
             who = p2;
+        }
+
+        //Purpose: 
+        //Requires: none
+        //Returns: none
+        private void RandomCursor()//******
+        {
+            int numOfCursChanges = 0;
+
+            PictureBox currPic = pictureBoxes[rand.Next(0, pictureBoxes.Count)]; //set currPic to a random picturebox
+
+            while (!spin)
+            {
+                numOfCursChanges++;
+
+                currPic = pictureBoxes[rand.Next(0, pictureBoxes.Count)]; //randomly select a picturebox on the board
+
+                currPic.BackColor = Color.Red; //highlight image
+
+                //randomize images in pictureboxes every other cursor change
+                if (numOfCursChanges == 2)
+                {
+                    numOfCursChanges = 0;
+
+                    foreach (PictureBox p in pictureBoxes)
+                    {
+                        if (IsHandleCreated)
+                        {
+                            p.Invoke((Action)(() => { p.Image = imageList.ElementAt(rand.Next(0, imageList.Count)); }));
+                        }
+                    }
+                }
+
+                System.Threading.Thread.Sleep(350); //Pause
+
+                currPic.BackColor = Color.Transparent; //de-highlight image
+            }
+
+            //keep current picture highlighted
+            currPic.BackColor = Color.Red;
+
+            //get chosen picture's value
+            addValue(currPic.Image);
+
+            //addSpin(currPic.Image);
+            //add value to player's scrore...
+
+            //saving currPic index
+            pictureBoxIndex = pictureBoxes.IndexOf(currPic);
+        }
+
+
+        //Purpose: calls function to start asking questions
+        //Requires: none
+        //Returns: none
+        private void addValue(Image i)
+        {
+            //if-condition interpretation: get the image name by taking advantage of the fact that imageList and imageNames run parallel to each other
+            //use regular expression to get the part of the string associated with the value of the image
+            //parse the resulting string into an integer to get the value
+            //if the value is less than 10, it's a whammy
+            if (Int32.Parse(regValue.Match(imageNames.ElementAt(imageList.IndexOf(i)).ToString()).ToString()) < 10)
+            {
+                player1.updateCash(0);
+                //player1ScoreTextBox.Text = Convert.ToString(player.getCash());
+            }
+            else
+            {
+                player1.updateCash(Int32.Parse(regValue.Match(imageNames.ElementAt(imageList.IndexOf(i)).ToString()).ToString()));
+                //player1ScoreTextBox.Text = Convert.ToString(player.getCash());
+            }
         }
     }
 }

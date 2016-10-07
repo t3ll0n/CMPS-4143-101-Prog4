@@ -110,6 +110,37 @@
   <ItemGroup>
     <None Include="images.png" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="images\gameboard\0001.png" />
+    <EmbeddedResource Include="images\gameboard\0002.png" />
+    <EmbeddedResource Include="images\gameboard\0003.png" />
+    <EmbeddedResource Include="images\gameboard\0004.png" />
+    <EmbeddedResource Include="images\gameboard\0300.png" />
+    <EmbeddedResource Include="images\gameboard\0350.png" />
+    <EmbeddedResource Include="images\gameboard\0400.png" />
+    <EmbeddedResource Include="images\gameboard\0450.png" />
+    <EmbeddedResource Include="images\gameboard\0470.png" />
+    <EmbeddedResource Include="images\gameboard\0500.png" />
+    <EmbeddedResource Include="images\gameboard\0525.png" />
+    <EmbeddedResource Include="images\gameboard\0550.png" />
+    <EmbeddedResource Include="images\gameboard\0600.png" />
+    <EmbeddedResource Include="images\gameboard\0650.png" />
+    <EmbeddedResource Include="images\gameboard\0700.png" />
+    <EmbeddedResource Include="images\gameboard\0740.png" />
+    <EmbeddedResource Include="images\gameboard\0750.png" />
+    <EmbeddedResource Include="images\gameboard\0800.png" />
+    <EmbeddedResource Include="images\gameboard\0900.png" />
+    <EmbeddedResource Include="images\gameboard\1000.png" />
+    <EmbeddedResource Include="images\gameboard\1100.png" />
+    <EmbeddedResource Include="images\gameboard\1200.png" />
+    <EmbeddedResource Include="images\gameboard\1250.png" />
+    <EmbeddedResource Include="images\gameboard\1400.png" />
+    <EmbeddedResource Include="images\gameboard\1500.png" />
+    <EmbeddedResource Include="images\gameboard\1750.png" />
+    <EmbeddedResource Include="images\gameboard\2000.png" />
+    <EmbeddedResource Include="images\gameboard\2250.png" />
+    <EmbeddedResource Include="images\gameboard\2500.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
