@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Tellon Smith and Johann Redhead
+//Setup.cs
+//holds information for the setup form
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

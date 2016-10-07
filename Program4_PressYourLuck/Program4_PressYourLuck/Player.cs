@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Tellon Smith and Johann Redhead
+//Player.cs file
+//holds information about the player
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +13,13 @@ namespace Program4_PressYourLuck
     class Player
     {
         public Player()
+        {
+            cash = 0;
+            spins = 0;
+        }
+
+        //resets the players data to play another game
+        public void resetPlayerData()
         {
             cash = 0;
             spins = 0;
@@ -39,12 +50,6 @@ namespace Program4_PressYourLuck
             {
                 return cash;
             }
-
-            //Sets cash to vlaue if greater than 0, else do not change cash
-            set
-            {
-                this.cash = value < 0? this.cash:value;
-            }
         }
 
         public int Spins
@@ -55,7 +60,7 @@ namespace Program4_PressYourLuck
                 return spins;
             }
 
-            //Sets cash to vlaue if greater than 0, else do not change spins
+            //Sets spins to vlaue if greater than 0
             set
             {
                 this.spins = value < 0? this.spins:value;

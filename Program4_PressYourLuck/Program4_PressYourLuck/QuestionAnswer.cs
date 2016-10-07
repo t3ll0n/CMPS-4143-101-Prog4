@@ -1,5 +1,6 @@
 ﻿//Tellon Smith and Johann Redhead
 //File: QuestionAnswer.cs
+//information for question/answer structure
 
 using System;
 using System.Collections.Generic;

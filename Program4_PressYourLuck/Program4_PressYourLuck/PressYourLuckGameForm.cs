@@ -1,15 +1,22 @@
-﻿using System;
+﻿//Tellon SMith and Johann Redhead
+//Class to hold main prgram-i.e the GameBoard
+//PressYourLuckGame.cs
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+using System.IO;
+using System.Reflection;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 
 namespace Program4_PressYourLuck
 {
@@ -22,6 +29,10 @@ namespace Program4_PressYourLuck
         int numplayers = 0;
         int numrounds = 1;
         int maxrounds = 2;
+        bool endround = false;
+        bool bonusround = false;
+        int picindex = 0;
+        bool stop = false;
         Setup setup = new Setup(); //create instance of setup form
 
         Player player1 = new Player(), player2 = new Player(),
@@ -84,9 +95,48 @@ namespace Program4_PressYourLuck
             MessageBox.Show("Once upon a time....", "How To Play");
         }
 
+        //Purpose: clear data fiels in main form
+        //Requires: none
+        //Returns: none
+        private void clearData()
+        {
+            player1SpinsTextBox.Text = "";
+            player2SpinsTextBox.Text = "";
+            player3SpinsTextBox.Text = "";
+            player1ScoreTextBox.Text = "";
+            player2ScoreTextBox.Text = "";
+            player3ScoreTextBox.Text = "";
+            player1.resetPlayerData();
+            player2.resetPlayerData();
+            player3.resetPlayerData();
+            current_spinner.Text = "";
+            round_label.Text = "";
+            winner_label.Text = "";
+            player1GroupBox.Visible = true;
+            player2GroupBox.Visible = true;
+            player3GroupBox.Visible = true;
+             numplayers = 0;
+            numrounds = 1;
+             maxrounds = 2;
+             endround = false;
+             bonusround = false;
+             picindex = 0;
+             stop = false;
+        }
+
         private void startButton_Click(object sender, EventArgs e)
         {
-            playerInit();
+            if (startButton.Text == "START GAME")
+            {
+                playerInit();
+                startButton.Text = "Play Again";
+                startButton.Enabled = false;
+            }
+            else if (startButton.Text == "Play Again")
+            {
+                startButton.Text = "START GAME";
+                clearData();
+            }
         }
 
         //Purpose: add game board picture boxes to a list(except the center picture box) 
@@ -116,7 +166,7 @@ namespace Program4_PressYourLuck
         //Returns: none
         public void playerInit()
         {
-            //get number o players from set-up form
+            //get number of players from set-up form
             setup.getNumPlayers(ref numplayers);
 
             //error checking to ensure that user went through set-up
@@ -140,7 +190,11 @@ namespace Program4_PressYourLuck
             }
             updateCash();
             updateSpins();
+            if (!this.Visible)
+                this.Show();
+            questionPlayers();
             startRound();
+            //startstop_spin.PerformClick();
         }
 
         //Purpose: starts a round in the game
@@ -148,77 +202,68 @@ namespace Program4_PressYourLuck
         //Returns: none
         private void startRound()
         {
-            if (!this.Visible)
-                this.Show();
-
-            do
-            {
-                startStopSpinButton.Enabled = true;
-                passSpinsButton.Enabled = true;
-                round_label.Text = "Round " + numrounds;
-                questionPlayers();
-
-                //donate spins to players if they leave 
-                //trivia section without spins
-                if (player1.Spins == 0 || (player1.Spins == 0 &&
-                    player2.Spins == 0) || (player1.Spins == 0 &&
-                    player2.Spins == 0 && player3.Spins == 0))
+                startstop_spin.Enabled = true;
+                pass_spins.Enabled = true;
+                if (numrounds < 3)
                 {
-                    player1.Spins = 1;
-                    player2.Spins = 1;
-                    player3.Spins = 1;
-                    updateSpins();
-                }
-
-                //see who's turn it is to spin
-                if (player1.Spins != 0)
-                {
-                    who = player1;
-                }
-                else if (player2.Spins != 0)
-                {
-                    who = player2;
+                    round_label.Text = "Round " + numrounds;
                 }
                 else
-                    who = player3;
-
-                if (numplayers == 3)
+                    round_label.Text = "Bonus Round";
+            
+                //statements to update spin label and to determine 
+                //who has to spin
+                if (numplayers == 1)
                 {
-                    if (player1.Cash > player2.Cash && player1.Cash >
-                        player3.Cash)
+                    if (player1.Spins != 0)
                     {
-                        winner_label.Text = "Player1 Wins!!!";
+                        who = player1;
+                        current_spinner.Text = "Player 1 to Spin!";
                     }
-                    else if (player2.Cash > player1.Cash && player2.Cash >
-                        player3.Cash)
+                    else if(player2.Spins != 0)
                     {
-                        winner_label.Text = "Player2 Wins!!!";
+                        who = player2;
+                        current_spinner.Text = "Player 2 to Spin";
                     }
-                    else if (player3.Cash > player1.Cash && player3.Cash >
-                        player2.Cash)
+                    else if (player3.Spins != 0)
                     {
-                        winner_label.Text = "Player3 Wins!!!";
+                        who = player3;
+                        current_spinner.Text = "Player 3 to Spin";
                     }
-                    else
-                        winner_label.Text = "Draw";
                 }
+
                 else if (numplayers == 2)
                 {
-                    if (player1.Cash > player2.Cash)
+                    if (player1.Spins != 0)
                     {
-                        winner_label.Text = "Player1 Wins!!!";
+                        who = player1;
+                        current_spinner.Text = "Player 1 to Spin!";
                     }
-                    else
-                        winner_label.Text = "Player2 Wins!!!";
+                    else if (player2.Spins != 0)
+                    {
+                        who = player2;
+                        current_spinner.Text = "Player 2 to Spin!";
+                    }
                 }
+
                 else
                 {
-                    winner_label.Text = "Thanks for playing player1";
-                    passSpinsButton.Enabled = false;
+                    if (player1.Spins != 0)
+                    {
+                        who = player1;
+                        current_spinner.Text = "Player 1 to Spin!";
+                    }
+                    else if (player2.Spins != 0)
+                    {
+                        who = player2;
+                        current_spinner.Text = "Player 2 to Spin!";
+                    }
+                    else
+                    {
+                        who = player3;
+                        current_spinner.Text = "Player 3 to Spin!";
+                    }
                 }
-                numrounds++;
-            }
-            while (numrounds < maxrounds);
         }
 
         private void settingbutton_Click_1(object sender, EventArgs e)
@@ -249,7 +294,14 @@ namespace Program4_PressYourLuck
             }
 
             else
-                player1ScoreTextBox.Text = player1.Cash.ToString("C");
+            {
+                if (player1GroupBox.Visible == true)
+                    player1ScoreTextBox.Text = player1.Cash.ToString("C");
+                else if (player2GroupBox.Visible == true)
+                    player2ScoreTextBox.Text = player2.Cash.ToString("C");
+                else if (player3GroupBox.Visible == true)
+                    player3ScoreTextBox.Text = player3.Cash.ToString("C");
+            }
         }
 
         //Purpose: accumulates the players' spins
@@ -273,8 +325,12 @@ namespace Program4_PressYourLuck
                 player3SpinsTextBox.Text = player3.Spins.ToString();
             }
 
-            else
+            else if(player1GroupBox.Visible == true)
                 player1SpinsTextBox.Text = player1.Spins.ToString();
+            else if (player2GroupBox.Visible == true)
+                player2SpinsTextBox.Text = player2.Spins.ToString();
+            else if (player3GroupBox.Visible == true)
+                player3SpinsTextBox.Text = player3.Spins.ToString();
         }
 
         //Purpose: calls function to start asking questions
@@ -297,44 +353,128 @@ namespace Program4_PressYourLuck
                 getplayerSpins(player2);
                 getplayerSpins(player3);
             }
-
+            if(numplayers == 1)
+            { 
+                if (player1GroupBox.Visible == true)
+                    getplayerSpins(player1);
+                 else if (player2GroupBox.Visible == true)
+                    getplayerSpins(player2);
+                else if (player3GroupBox.Visible == true)
+                    getplayerSpins(player3);
+            }
+            //donate spins to players if they leave 
+            //trivia section without spins
+            if (numplayers == 1)
+            {
+                if (player1.Spins == 0 && player1GroupBox.Visible == true)
+                {
+                    player1.Spins = 3;
+                    updateSpins();
+                }
+                else if (player2.Spins == 0 && player2GroupBox.Visible == true)
+                {
+                    player2.Spins = 3;
+                    updateSpins();
+                }
+                else if (player3.Spins == 0 && player3GroupBox.Visible == true)
+                {
+                    player3.Spins = 3;
+                    updateSpins();
+                }
+            }
             else
-                getplayerSpins(player1);
+            {
+                if (player1.Spins == 0 &&
+                player2.Spins == 0 || (player1.Spins == 0 &&
+                player2.Spins == 0 && player3.Spins == 0))
+                {
+                    player1.Spins = 3;
+                    player2.Spins = 3;
+                    player3.Spins = 3;
+                    updateSpins();
+                }
+            }
             updateCash();
             updateSpins();
         }
 
-        private void startStopSpinButton_Click(object sender, EventArgs e)
+        //Purpose: announces the winner after 2 rounds
+        //Requires: none
+        //Return: none
+        private void announceWinner()
         {
-            //after the start button is pressed, the text will be changed to "Stop!"*********
-            if (startStopSpinButton.Text == "START SPIN")
-            {
-                pictureBoxes.ElementAt(pictureBoxIndex).BackColor = Color.Transparent;
-                startStopSpinButton.Text = "STOP SPIN!";
+            if (numplayers == 3)
+                {
+                    if (player1.Spins == 0 && player2.Spins == 0 &&
+                        player3.Spins == 0)
+                    {
+                        if (player1.Cash > player2.Cash && player1.Cash >
+                           player3.Cash)
+                        {
+                            winner_label.Text = "Player1 Wins!!!";
+                            who = player1;
+                        }
+                        else if (player2.Cash > player1.Cash && player2.Cash >
+                               player3.Cash)
+                        {
+                            winner_label.Text = "Player2 Wins!!!";
+                            who = player2;
+                        }
+                        else if (player3.Cash > player1.Cash && player3.Cash >
+                                player2.Cash)
+                        {
+                            winner_label.Text = "Player3 Wins!!!";
+                            who = player3;
+                        }
+                        else
+                            winner_label.Text = "Draw";
+                    }
+                }
+                else if (numplayers == 2)
+                {
+                    if (player1.Spins == 0 && player2.Spins == 0)
+                    {
+                        if (player1.Cash > player2.Cash)
+                        {
+                            winner_label.Text = "Player1 Wins!!!";
+                            who = player1;
+                        }
+                        else if (player2.Cash > player1.Cash)
+                        {
+                            winner_label.Text = "Player2 Wins!!!";
+                            who = player2;
+                        }
 
-                //declaring thread for cursor randomization
-                System.Threading.Thread randomCursorThread;
-                randomCursorThread = new System.Threading.Thread(new System.Threading.ThreadStart(RandomCursor));
-                randomCursorThread.Start(); //begin randomCursorThread
+                        else
+                            winner_label.Text = "Draw";
+                    }
+                }
+
+                else
+                {
+                    if (player1.Spins == 0 && player1GroupBox.Visible == true)
+                    {
+                        winner_label.Text = "Thanks for playing player1";
+                        pass_spins.Enabled = false;
+                        startButton.Enabled = true;
+                        startstop_spin.Enabled = false;
+                    }
+                    else if (player2.Spins == 0 && player2GroupBox.Visible == true)
+                    {
+                        winner_label.Text = "Thanks for playing player2";
+                        pass_spins.Enabled = false;
+                        startButton.Enabled = true;
+                        startstop_spin.Enabled = false;
+                    }
+                    else if (player3.Spins == 0 && player3GroupBox.Visible == true)
+                    {
+                        winner_label.Text = "Thanks for playing player3";
+                        pass_spins.Enabled = false;
+                        startButton.Enabled = true;
+                        startstop_spin.Enabled = false;
+                    }
+                }
             }
-            else //StartStopButton.Text = "Stop!"*******
-            {
-                startStopSpinButton.Text = "START SPIN";
-                spin = true;
-                System.Threading.Thread.Sleep(400); //give the thread time to get the message
-                spin = false;
-                //players.ElementAt(getPlayer() - 1).decrementSpins();
-                // updatePlayerTurnLabel();
-                // updatePlayerScoreLabels();
-                //if no players have any remaining spins, announce the winner; game over
-                // if (getPlayer() < 0)
-                //{
-                //     announceWinner();
-                //    this.Close();
-                // }
-                //}
-            }
-        }
 
         //Purpose: Question players
         //Requires: instance of player class
@@ -343,7 +483,9 @@ namespace Program4_PressYourLuck
         {
             gametrivia.startQuestions();
             gametrivia.ShowDialog(this);
-            player.Spins += gametrivia.CorrectAnswers;
+            
+            //gives player 3 spins per correct answer
+            player.updateSpins(gametrivia.CorrectAnswers*3);
         }
 
         //Purpose: pass a player's spins to another player
@@ -356,20 +498,32 @@ namespace Program4_PressYourLuck
                 if (who == player1)
                 {
                     passSpin(player1, player2);
+                    current_spinner.Text = "Player 2 to Spin!";
                 }
                 else
+                {
                     passSpin(player2, player1);
+                    current_spinner.Text = "Player 1 to Spin!";
+                }
             }
             else if (numplayers == 3)
             {
                 if (who == player2)
+                {
                     passSpin(player2, player3);
+                    current_spinner.Text = "Player 3 to Spin!";
+                }
                 else if (who == player3)
+                {
                     passSpin(player3, player1);
+                    current_spinner.Text = "Player 1 to Spin!";
+                }
                 else
+                {
                     passSpin(player1, player3);
+                    current_spinner.Text = "Player 1 to Spin!";
+                }
             }
-            //else
             updateSpins();
         }
 
@@ -381,22 +535,26 @@ namespace Program4_PressYourLuck
             p2.Spins += p1.Spins;
             p1.Spins = 0;
             who = p2;
+            pass_spins.Enabled = false;
         }
 
-        //Purpose: 
+         
+         //Purpose: randomly moves cursor around board to higlight images
         //Requires: none
         //Returns: none
-        private void RandomCursor()//******
+        private void randomCursor()
         {
             int numOfCursChanges = 0;
 
-            PictureBox currPic = pictureBoxes[rand.Next(0, pictureBoxes.Count)]; //set currPic to a random picturebox
+            //set currPic to a random picturebox
+            PictureBox currPic = pictureBoxes[rand.Next(0, pictureBoxes.Count)]; 
 
-            while (!spin)
+           do
             {
                 numOfCursChanges++;
 
-                currPic = pictureBoxes[rand.Next(0, pictureBoxes.Count)]; //randomly select a picturebox on the board
+                //randomly select a picturebox on the board
+                currPic = pictureBoxes[rand.Next(0, pictureBoxes.Count)]; 
 
                 currPic.BackColor = Color.Red; //highlight image
 
@@ -409,7 +567,9 @@ namespace Program4_PressYourLuck
                     {
                         if (IsHandleCreated)
                         {
-                            p.Invoke((Action)(() => { p.Image = imageList.ElementAt(rand.Next(0, imageList.Count)); }));
+                            p.Invoke((Action)(() => { p.Image = 
+                            imageList.ElementAt(rand.Next(0, 
+                            imageList.Count)); }));
                         }
                     }
                 }
@@ -417,7 +577,7 @@ namespace Program4_PressYourLuck
                 System.Threading.Thread.Sleep(350); //Pause
 
                 currPic.BackColor = Color.Transparent; //de-highlight image
-            }
+            } while (!stop);
 
             //keep current picture highlighted
             currPic.BackColor = Color.Red;
@@ -425,11 +585,8 @@ namespace Program4_PressYourLuck
             //get chosen picture's value
             addValue(currPic.Image);
 
-            //addSpin(currPic.Image);
-            //add value to player's scrore...
-
             //saving currPic index
-            pictureBoxIndex = pictureBoxes.IndexOf(currPic);
+            picindex = pictureBoxes.IndexOf(currPic);
         }
 
 
@@ -438,19 +595,149 @@ namespace Program4_PressYourLuck
         //Returns: none
         private void addValue(Image i)
         {
-            //if-condition interpretation: get the image name by taking advantage of the fact that imageList and imageNames run parallel to each other
-            //use regular expression to get the part of the string associated with the value of the image
-            //parse the resulting string into an integer to get the value
-            //if the value is less than 10, it's a whammy
-            if (Int32.Parse(regValue.Match(imageNames.ElementAt(imageList.IndexOf(i)).ToString()).ToString()) < 10)
+            //if image on board is a whammy
+            if (Int32.Parse(regValue.Match(imageNames.ElementAt
+                (imageList.IndexOf(i)).ToString()).ToString()) < 10)
             {
-                player1.updateCash(0);
-                //player1ScoreTextBox.Text = Convert.ToString(player.getCash());
+                if (who == player1)
+                {
+                    player1.updateCash(0);
+                }
+                else if (who == player2)
+                {
+                    player2.updateCash(0);
+                }
+                else if (who == player3)
+                {
+                    player3.updateCash(0);
+                }
             }
+            //if regular money image
             else
             {
-                player1.updateCash(Int32.Parse(regValue.Match(imageNames.ElementAt(imageList.IndexOf(i)).ToString()).ToString()));
-                //player1ScoreTextBox.Text = Convert.ToString(player.getCash());
+                if (who == player1)
+                {
+                    player1.updateCash(Int32.Parse(regValue.Match
+                    (imageNames.ElementAt(imageList.IndexOf(i)).
+                    ToString()).ToString()));
+                }
+                else if (who == player2)
+                {
+                    player2.updateCash(Int32.Parse(regValue.Match
+                     (imageNames.ElementAt(imageList.IndexOf(i)).
+                     ToString()).ToString()));
+                }
+                else if (who == player3)
+                {
+                    player3.updateCash(Int32.Parse(regValue.Match
+                    (imageNames.ElementAt(imageList.IndexOf(i)).
+                    ToString()).ToString()));
+                }
+            }
+        }
+
+        private void startstop_spin_Click(object sender, EventArgs e)
+        {
+            endround = false;
+            //start the gameboard animation when user starts to spin
+            if (startstop_spin.Text == "START SPIN")
+            {
+                startRound();
+                pictureBoxes.ElementAt(picindex).BackColor = Color.Transparent;
+                //change button text to stop for user to stop spinning board
+                startstop_spin.Text = "STOP SPIN";
+
+                //start thread for cursor randomization
+                System.Threading.Thread random_cursorThread;
+                random_cursorThread = new System.Threading.
+                Thread(new System.Threading.ThreadStart(randomCursor));
+                //start thread
+                random_cursorThread.Start();
+            }
+
+            //if user stops spinning the board
+            else
+            {
+                startstop_spin.Text = "START SPIN";
+                stop = true;
+                Thread.Sleep(400);
+                stop = false;
+                who.Spins -= 1; //decrement player spins
+                updateSpins();
+                updateCash();
+                if (numplayers == 3)
+                {
+                    if (player1.Spins == 0 && player2.Spins == 0 &&
+                        player3.Spins == 0)
+                    {
+                        endround = true;
+                        numrounds++;
+                    }
+                }
+                else if (numplayers == 2)
+                {
+                    if (player1.Spins == 0 && player2.Spins == 0)
+                    {
+                        endround = true;
+                        numrounds++;
+                    }
+                }
+                else
+                {
+                    if (player1.Spins == 0)
+                    {
+                        endround = true;
+                        numrounds++;
+                    }
+                    else if (player2.Spins == 0)
+                    {
+                        endround = true;
+                        numrounds++;
+                    }
+                    else if (player3.Spins == 0)
+                    {
+                        endround = true;
+                        numrounds++;
+                    }
+                }
+                //if player(s) run out of spins and 2 rounds
+                if (endround && numrounds <= 2)
+                {
+                    round_label.Text = "Round " + numrounds;
+                    current_spinner.Text = "";
+  
+                    questionPlayers();
+                }
+                else
+                {
+                    announceWinner();
+                }
+                if(numrounds == 3)
+                {
+                    numplayers = 1;
+                    round_label.Text = "Bonus Round";
+                    bonusround = true;
+                    endround = false;
+                    //disable all textboxes but winner's for bonus round
+                    if (who == player1)
+                    {
+                        player2GroupBox.Visible = false;
+                        player3GroupBox.Visible = false;
+                    }
+                    else if(who == player2)
+                    {
+                        player1GroupBox.Visible = false;
+                        player3GroupBox.Visible = false;
+                    }
+                    else if (who == player3)
+                    {
+                        player1GroupBox.Visible = false;
+                        player2GroupBox.Visible = false;
+                    }
+                    questionPlayers();
+                    numrounds++; //won't question user in bonus round 
+                    //multiple times
+                }
             }
         }
     }

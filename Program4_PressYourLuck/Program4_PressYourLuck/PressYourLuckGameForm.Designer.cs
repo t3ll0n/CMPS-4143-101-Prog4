@@ -66,10 +66,11 @@
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.settingbutton = new System.Windows.Forms.Button();
-            this.passSpinsButton = new System.Windows.Forms.Button();
+            this.pass_spins = new System.Windows.Forms.Button();
             this.round_label = new System.Windows.Forms.Label();
             this.winner_label = new System.Windows.Forms.Label();
-            this.startStopSpinButton = new System.Windows.Forms.Button();
+            this.startstop_spin = new System.Windows.Forms.Button();
+            this.current_spinner = new System.Windows.Forms.Label();
             this.player1GroupBox.SuspendLayout();
             this.player2GroupBox.SuspendLayout();
             this.player3GroupBox.SuspendLayout();
@@ -139,13 +140,14 @@
             // 
             // player1GroupBox
             // 
+            this.player1GroupBox.BackColor = System.Drawing.Color.Black;
             this.player1GroupBox.Controls.Add(this.player1ScoreTextBox);
             this.player1GroupBox.Controls.Add(this.player1SpinsTextBox);
             this.player1GroupBox.Controls.Add(this.player1ScoreLabel);
             this.player1GroupBox.Controls.Add(this.player1SpinsLabel);
             this.player1GroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.player1GroupBox.ForeColor = System.Drawing.Color.Red;
-            this.player1GroupBox.Location = new System.Drawing.Point(538, 21);
+            this.player1GroupBox.Location = new System.Drawing.Point(629, 12);
             this.player1GroupBox.Name = "player1GroupBox";
             this.player1GroupBox.Size = new System.Drawing.Size(200, 98);
             this.player1GroupBox.TabIndex = 42;
@@ -195,7 +197,7 @@
             this.player2GroupBox.Controls.Add(this.player2SpinsLabel);
             this.player2GroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.player2GroupBox.ForeColor = System.Drawing.Color.Yellow;
-            this.player2GroupBox.Location = new System.Drawing.Point(538, 134);
+            this.player2GroupBox.Location = new System.Drawing.Point(629, 131);
             this.player2GroupBox.Name = "player2GroupBox";
             this.player2GroupBox.Size = new System.Drawing.Size(200, 98);
             this.player2GroupBox.TabIndex = 43;
@@ -246,7 +248,7 @@
             this.player3GroupBox.Controls.Add(this.player3SpinsLabel);
             this.player3GroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.player3GroupBox.ForeColor = System.Drawing.Color.Blue;
-            this.player3GroupBox.Location = new System.Drawing.Point(538, 252);
+            this.player3GroupBox.Location = new System.Drawing.Point(629, 252);
             this.player3GroupBox.Name = "player3GroupBox";
             this.player3GroupBox.Size = new System.Drawing.Size(200, 98);
             this.player3GroupBox.TabIndex = 44;
@@ -486,67 +488,81 @@
             this.settingbutton.BackgroundImage = global::Program4_PressYourLuck.Properties.Resources.images;
             this.settingbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.settingbutton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.settingbutton.Location = new System.Drawing.Point(667, 478);
+            this.settingbutton.Location = new System.Drawing.Point(754, 484);
             this.settingbutton.Name = "settingbutton";
             this.settingbutton.Size = new System.Drawing.Size(75, 75);
             this.settingbutton.TabIndex = 45;
             this.settingbutton.UseVisualStyleBackColor = true;
             this.settingbutton.Click += new System.EventHandler(this.settingbutton_Click_1);
             // 
-            // passSpinsButton
+            // pass_spins
             // 
-            this.passSpinsButton.BackColor = System.Drawing.Color.Blue;
-            this.passSpinsButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.passSpinsButton.Enabled = false;
-            this.passSpinsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passSpinsButton.ForeColor = System.Drawing.Color.Yellow;
-            this.passSpinsButton.Location = new System.Drawing.Point(658, 382);
-            this.passSpinsButton.Name = "passSpinsButton";
-            this.passSpinsButton.Size = new System.Drawing.Size(80, 80);
-            this.passSpinsButton.TabIndex = 46;
-            this.passSpinsButton.Text = "PASS SPINS";
-            this.passSpinsButton.UseVisualStyleBackColor = false;
-            this.passSpinsButton.Click += new System.EventHandler(this.pass_spins_Click);
+            this.pass_spins.BackColor = System.Drawing.Color.Blue;
+            this.pass_spins.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pass_spins.Enabled = false;
+            this.pass_spins.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pass_spins.ForeColor = System.Drawing.Color.Yellow;
+            this.pass_spins.Location = new System.Drawing.Point(749, 398);
+            this.pass_spins.Name = "pass_spins";
+            this.pass_spins.Size = new System.Drawing.Size(80, 80);
+            this.pass_spins.TabIndex = 46;
+            this.pass_spins.Text = "PASS SPINS";
+            this.pass_spins.UseVisualStyleBackColor = false;
+            this.pass_spins.Click += new System.EventHandler(this.pass_spins_Click);
             // 
             // round_label
             // 
-            this.round_label.Location = new System.Drawing.Point(596, 356);
+            this.round_label.Font = new System.Drawing.Font("Baskerville Old Face", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.round_label.ForeColor = System.Drawing.Color.IndianRed;
+            this.round_label.Location = new System.Drawing.Point(528, 356);
             this.round_label.Name = "round_label";
-            this.round_label.Size = new System.Drawing.Size(100, 23);
+            this.round_label.Size = new System.Drawing.Size(301, 39);
             this.round_label.TabIndex = 47;
             // 
             // winner_label
             // 
-            this.winner_label.Location = new System.Drawing.Point(535, 509);
+            this.winner_label.Font = new System.Drawing.Font("Baskerville Old Face", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.winner_label.ForeColor = System.Drawing.Color.IndianRed;
+            this.winner_label.Location = new System.Drawing.Point(414, 502);
             this.winner_label.Name = "winner_label";
-            this.winner_label.Size = new System.Drawing.Size(100, 23);
+            this.winner_label.Size = new System.Drawing.Size(315, 53);
             this.winner_label.TabIndex = 48;
             // 
-            // startStopSpinButton
+            // startstop_spin
             // 
-            this.startStopSpinButton.BackColor = System.Drawing.Color.Blue;
-            this.startStopSpinButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.startStopSpinButton.Enabled = false;
-            this.startStopSpinButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startStopSpinButton.ForeColor = System.Drawing.Color.Yellow;
-            this.startStopSpinButton.Location = new System.Drawing.Point(555, 382);
-            this.startStopSpinButton.Name = "startStopSpinButton";
-            this.startStopSpinButton.Size = new System.Drawing.Size(80, 80);
-            this.startStopSpinButton.TabIndex = 49;
-            this.startStopSpinButton.Text = "START SPIN";
-            this.startStopSpinButton.UseVisualStyleBackColor = false;
-            this.startStopSpinButton.Click += new System.EventHandler(this.startStopSpinButton_Click);
+            this.startstop_spin.BackColor = System.Drawing.Color.Blue;
+            this.startstop_spin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.startstop_spin.Enabled = false;
+            this.startstop_spin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startstop_spin.ForeColor = System.Drawing.Color.Yellow;
+            this.startstop_spin.Location = new System.Drawing.Point(662, 398);
+            this.startstop_spin.Name = "startstop_spin";
+            this.startstop_spin.Size = new System.Drawing.Size(80, 80);
+            this.startstop_spin.TabIndex = 49;
+            this.startstop_spin.Text = "START SPIN";
+            this.startstop_spin.UseVisualStyleBackColor = false;
+            this.startstop_spin.Click += new System.EventHandler(this.startstop_spin_Click);
+            // 
+            // current_spinner
+            // 
+            this.current_spinner.Font = new System.Drawing.Font("Baskerville Old Face", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.current_spinner.ForeColor = System.Drawing.Color.IndianRed;
+            this.current_spinner.Location = new System.Drawing.Point(414, 439);
+            this.current_spinner.Name = "current_spinner";
+            this.current_spinner.Size = new System.Drawing.Size(242, 39);
+            this.current_spinner.TabIndex = 50;
             // 
             // PressYourLuckGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(754, 565);
-            this.Controls.Add(this.startStopSpinButton);
+            this.ClientSize = new System.Drawing.Size(841, 565);
+            this.Controls.Add(this.current_spinner);
+            this.Controls.Add(this.startstop_spin);
             this.Controls.Add(this.winner_label);
             this.Controls.Add(this.round_label);
-            this.Controls.Add(this.passSpinsButton);
+            this.Controls.Add(this.pass_spins);
             this.Controls.Add(this.settingbutton);
             this.Controls.Add(this.player3GroupBox);
             this.Controls.Add(this.player2GroupBox);
@@ -645,10 +661,11 @@
         private System.Windows.Forms.Label player3ScoreLabel;
         private System.Windows.Forms.Label player3SpinsLabel;
         private System.Windows.Forms.Button settingbutton;
-        private System.Windows.Forms.Button passSpinsButton;
+        private System.Windows.Forms.Button pass_spins;
         private System.Windows.Forms.Label round_label;
         private System.Windows.Forms.Label winner_label;
-        private System.Windows.Forms.Button startStopSpinButton;
+        private System.Windows.Forms.Button startstop_spin;
+        private System.Windows.Forms.Label current_spinner;
     }
 }
 
