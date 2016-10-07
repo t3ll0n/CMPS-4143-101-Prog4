@@ -13,13 +13,13 @@ namespace Program4_PressYourLuck
     public partial class PressYourLuckGameForm : Form
     {
         int numplayers = 0;
-        int roundNum = 1;
+        int numrounds = 1;
         int maxrounds = 2;
         Setup setup = new Setup(); //create instance of setup form
 
-        private Player player1 = new Player(), player2 = new Player(),
-        player3 = new Player(); //create 3 instances for 3 players
-
+        Player player1 = new Player(), player2 = new Player(),
+        player3 = new Player(),who; //create 3 instances for 3 players and 
+        //instance to track active player
 
         //create instance of gameTrivia form
         GameTrivia gametrivia = new GameTrivia(); 
@@ -61,8 +61,6 @@ namespace Program4_PressYourLuck
                 Application.Exit(); //close the program
             }
 
-            //gametrivia.FilePath = setup.File_Path;
-
             //activate score menu or correspondiing number of players
             if(numplayers == 2)
             {
@@ -87,11 +85,73 @@ namespace Program4_PressYourLuck
             if (!this.Visible)
                 this.Show();
 
-            if (roundNum <= maxrounds)
+            do
             {
-
+                pass_spins.Enabled = true;
+                round_label.Text = "Round " + numrounds;
                 questionPlayers();
-            }
+             
+                //donate spins to players if they leave 
+                //trivia section without spins
+                if(player1.Spins == 0 || (player1.Spins == 0 && 
+                    player2.Spins == 0) || (player1.Spins == 0 && 
+                    player2.Spins == 0 && player3.Spins == 0))
+                {
+                    player1.Spins = 1;
+                    player2.Spins = 1;
+                    player3.Spins = 1;
+                    updateSpins();
+                }
+
+                //see who's turn it is to spin
+                if (player1.Spins != 0)
+                {
+                    who = player1;
+                }
+                else if (player2.Spins != 0)
+                {
+                    who = player2;
+                }
+                else
+                    who = player3;
+    
+                if(numplayers == 3)
+                {
+                    if (player1.Cash > player2.Cash && player1.Cash >
+                        player3.Cash)
+                    {
+                        winner_label.Text = "Player1 Wins!!!";
+                    }
+                    else if (player2.Cash > player1.Cash && player2.Cash >
+                        player3.Cash)
+                    {
+                        winner_label.Text = "Player2 Wins!!!";
+                    }
+                    else if (player3.Cash > player1.Cash && player3.Cash >
+                        player2.Cash)
+                    {
+                        winner_label.Text = "Player3 Wins!!!";
+                    }
+                    else
+                        winner_label.Text = "Draw";
+                }
+                else if (numplayers == 2)
+                {
+                    if (player1.Cash > player2.Cash)
+                    {
+                        winner_label.Text = "Player1 Wins!!!";
+                    }
+                    else
+                        winner_label.Text = "Player2 Wins!!!";
+                }
+                else
+                {
+                    winner_label.Text = "Thanks for playing player1";
+                    pass_spins.Enabled = false; 
+                }
+               numrounds++;
+             }
+             while (numrounds < maxrounds);
         }
 
         private void settingbutton_Click_1(object sender, EventArgs e)
@@ -185,6 +245,43 @@ namespace Program4_PressYourLuck
             gametrivia.startQuestions();
             gametrivia.ShowDialog(this);
             player.Spins += gametrivia.CorrectAnswers;
+        }
+
+        //Purpose: pass a player's spins to another player
+        //Requires: object sender, EventArgs e
+        //Returns: none
+        private void pass_spins_Click(object sender, EventArgs e)
+        {
+            if(numplayers == 2)
+            {
+                if (who == player1)
+                {
+                    passSpin(player1, player2);
+                }
+                else
+                    passSpin(player2, player1);
+            }
+            else if(numplayers == 3)
+            {
+                if (who == player2)
+                    passSpin(player2, player3);
+                else if (who == player3)
+                    passSpin(player3, player1);
+                else
+                    passSpin(player1, player3);
+            }
+            //else
+            updateSpins();
+        }
+
+        //Purpose: passes one player's spins to another
+        //Requires: 2 players
+        //Returns: none
+        void passSpin(Player p1, Player p2)
+        {
+            p2.Spins += p1.Spins;
+            p1.Spins = 0;
+            who = p2;
         }
     }
 }

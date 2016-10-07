@@ -38,7 +38,7 @@
             // 
             // Questions
             // 
-            this.Questions.Location = new System.Drawing.Point(12, 41);
+            this.Questions.Location = new System.Drawing.Point(60, 56);
             this.Questions.Name = "Questions";
             this.Questions.ReadOnly = true;
             this.Questions.Size = new System.Drawing.Size(260, 71);
@@ -47,7 +47,7 @@
             // 
             // Trivia
             // 
-            this.Trivia.Location = new System.Drawing.Point(1, 131);
+            this.Trivia.Location = new System.Drawing.Point(49, 149);
             this.Trivia.Name = "Trivia";
             this.Trivia.Size = new System.Drawing.Size(83, 20);
             this.Trivia.TabIndex = 1;
@@ -58,14 +58,14 @@
             // 
             // Answers
             // 
-            this.Answers.Location = new System.Drawing.Point(90, 131);
+            this.Answers.Location = new System.Drawing.Point(177, 149);
             this.Answers.Name = "Answers";
             this.Answers.Size = new System.Drawing.Size(182, 20);
             this.Answers.TabIndex = 2;
             // 
             // Submit
             // 
-            this.Submit.Location = new System.Drawing.Point(12, 190);
+            this.Submit.Location = new System.Drawing.Point(34, 189);
             this.Submit.Name = "Submit";
             this.Submit.Size = new System.Drawing.Size(123, 60);
             this.Submit.TabIndex = 3;
@@ -75,7 +75,7 @@
             // 
             // next
             // 
-            this.next.Location = new System.Drawing.Point(184, 216);
+            this.next.Location = new System.Drawing.Point(221, 226);
             this.next.Name = "next";
             this.next.Size = new System.Drawing.Size(88, 23);
             this.next.TabIndex = 4;
@@ -85,19 +85,19 @@
             // 
             // Result
             // 
-            this.Result.AutoSize = true;
-            this.Result.Location = new System.Drawing.Point(121, 9);
+            this.Result.Font = new System.Drawing.Font("Stencil", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Result.ForeColor = System.Drawing.Color.LawnGreen;
+            this.Result.Location = new System.Drawing.Point(60, 8);
             this.Result.Name = "Result";
-            this.Result.Size = new System.Drawing.Size(35, 13);
-            this.Result.TabIndex = 5;
-            this.Result.Text = "label1";
+            this.Result.Size = new System.Drawing.Size(260, 45);
+            this.Result.TabIndex = 6;
             // 
             // GameTrivia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(407, 261);
             this.Controls.Add(this.Result);
             this.Controls.Add(this.next);
             this.Controls.Add(this.Submit);

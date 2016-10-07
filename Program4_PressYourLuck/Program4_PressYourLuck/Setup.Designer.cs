@@ -33,12 +33,14 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.numplayer = new System.Windows.Forms.ComboBox();
             this.okbutton = new System.Windows.Forms.Button();
+            this.path_label = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.path_label);
             this.groupBox1.Controls.Add(this.choosefile);
             this.groupBox1.Location = new System.Drawing.Point(40, 13);
             this.groupBox1.Name = "groupBox1";
@@ -50,7 +52,7 @@
             // choosefile
             // 
             this.choosefile.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.choosefile.Location = new System.Drawing.Point(59, 39);
+            this.choosefile.Location = new System.Drawing.Point(59, 19);
             this.choosefile.Name = "choosefile";
             this.choosefile.Size = new System.Drawing.Size(87, 25);
             this.choosefile.TabIndex = 1;
@@ -92,6 +94,13 @@
             this.okbutton.UseVisualStyleBackColor = true;
             this.okbutton.Click += new System.EventHandler(this.okbutton_Click);
             // 
+            // path_label
+            // 
+            this.path_label.Location = new System.Drawing.Point(59, 47);
+            this.path_label.Name = "path_label";
+            this.path_label.Size = new System.Drawing.Size(87, 18);
+            this.path_label.TabIndex = 2;
+            // 
             // Setup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -116,5 +125,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox numplayer;
         private System.Windows.Forms.Button okbutton;
+        private System.Windows.Forms.Label path_label;
     }
 }

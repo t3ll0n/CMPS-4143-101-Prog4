@@ -40,6 +40,7 @@ namespace Program4_PressYourLuck
             {
                 // place file path to text file in a variable
                 file_path = openFileDialog1.FileName;
+                path_label.Text = file_path;
             }
         }
 
