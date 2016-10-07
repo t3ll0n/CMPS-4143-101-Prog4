@@ -45,8 +45,27 @@ namespace Program4_PressYourLuck
             Submit.Enabled = false;
             next.Enabled = false;
             Questions.ReadOnly = true;
-            file_path = "..\\..\\trivia.txt";
-            numques = readFile(file_path);
+        }
+
+        //setter for file path
+        public string File_Path
+        {
+            get
+            {
+                return file_path;
+            }
+            set
+            {
+                this.file_path = value;
+            }
+        }
+
+        //Purpose: gets file path
+        //Requires: file path
+        //Returns: none
+        public void getfilePath(string file)
+        {
+            numques = readFile(file);
             if (numques < 1)
             {
                 MessageBox.Show("No data present in file",
@@ -64,7 +83,7 @@ namespace Program4_PressYourLuck
         //Purpose: reads in the data from the input file, i.e questions/answer
         //Requires: input file location
         //Returns: count of question/answers in file
-        private int readFile(string filename)
+        public int readFile(string filename)
         {
             StreamReader filereader;
             //try/catch to ensure that file is open to be read

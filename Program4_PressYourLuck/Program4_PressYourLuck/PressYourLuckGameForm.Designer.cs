@@ -304,7 +304,7 @@
             // 
             // pictureBox19
             // 
-            this.pictureBox19.Image = global::Program4_PressYourLuck.Properties.Resources.PressYourLuck;
+            this.pictureBox19.Image = global::Program4_PressYourLuck.Properties.Resources.PressYourLuck1;
             this.pictureBox19.Location = new System.Drawing.Point(98, 98);
             this.pictureBox19.Name = "pictureBox19";
             this.pictureBox19.Size = new System.Drawing.Size(338, 252);

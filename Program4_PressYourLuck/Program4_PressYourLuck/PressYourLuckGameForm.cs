@@ -17,6 +17,7 @@ using System.IO;
 using System.Reflection;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.Media;
 
 namespace Program4_PressYourLuck
 {
@@ -25,7 +26,7 @@ namespace Program4_PressYourLuck
         private const int NUM_SPACES = 18;
 
         //class variables
-
+        string filepath;
         int numplayers = 0;
         int numrounds = 1;
         int maxrounds = 2;
@@ -37,13 +38,16 @@ namespace Program4_PressYourLuck
 
         Player player1 = new Player(), player2 = new Player(),
         player3 = new Player(), who; //create 3 instances for 3 players and 
-        //instance to track active player
+                                     //instance to track active player
 
+        
         //create instance of gameTrivia form
         GameTrivia gametrivia = new GameTrivia();
-
+      
         //Image directory
         private string imageDir = @"..\..\images\gameboard";
+        private string gamebordCenterImg = @"..\..\images\PressYourLuck.PNG";
+        private string whammyImg = @"..\..\images\whammy.gif";
         //random number generator 
         private Random rand = new Random();
         //list to hold all picture boxes****
@@ -54,13 +58,8 @@ namespace Program4_PressYourLuck
         private List<String> imageNames = new List<String>();
         //assembly reference****
         private Assembly assembly;
-        //integer to store the index of the currently selected picturebox****
-        private int pictureBoxIndex = 0;
-        //declaring thread for cursor randomization*******
-        //System.Threading.Thread randomCursorThread; //*******
-        //variable to control spins
-        private bool spin = false;
-
+        private String audioFile = "";
+        private String audioPath = @"..\..\sounds";
         //regular expression to be used in deciding value of image
         private Regex regValue = new Regex(@"[0-9]*0", RegexOptions.IgnoreCase);
 
@@ -68,7 +67,8 @@ namespace Program4_PressYourLuck
         public PressYourLuckGameForm()
         {
             InitializeComponent();
-            MessageBox.Show("Please run the set-up and fill out all fields.");
+            MessageBox.Show("Welcome to the Press Your Luck Game."+
+                "Please run the set-up and fill out all fields.","Welcome");
 
             addPictureBoxes();
 
@@ -83,6 +83,10 @@ namespace Program4_PressYourLuck
 
             //randomly populate gameboard picture boxes with images on form load****
             populatePictureBoxes();
+
+            //play intro sound
+            audioFile = (audioPath + "\\" + "intro.wav");
+            playSound(audioFile);
         }
 
         private void quitGameButton_Click(object sender, EventArgs e)
@@ -92,7 +96,12 @@ namespace Program4_PressYourLuck
 
         private void howToPlayButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Once upon a time....", "How To Play");
+            MessageBox.Show("Select the number of users to play the game.Each user answers 3" +
+                "questions; with each correct answer having 3 spins After the trivia section" +
+                "is complete, users will use their spins on the spinning gameboard. The user" +
+                "with the most money at the end o the 2 rounds, will be declared the winner" +
+                "and move on to the bonus round. All cash values won are strictly fictional" +
+                "and not subject to real life.", "How To Play");
         }
 
         //Purpose: clear data fiels in main form
@@ -126,8 +135,11 @@ namespace Program4_PressYourLuck
 
         private void startButton_Click(object sender, EventArgs e)
         {
+            pictureBox19.ImageLocation = gamebordCenterImg;
             if (startButton.Text == "START GAME")
             {
+                filepath = setup.File_Path;
+                gametrivia.readFile(filepath);
                 playerInit();
                 startButton.Text = "Play Again";
                 startButton.Enabled = false;
@@ -168,7 +180,7 @@ namespace Program4_PressYourLuck
         {
             //get number of players from set-up form
             setup.getNumPlayers(ref numplayers);
-
+            gametrivia.File_Path = setup.File_Path;
             //error checking to ensure that user went through set-up
             if (setup.File_Path == "")
             {
@@ -268,7 +280,7 @@ namespace Program4_PressYourLuck
 
         private void settingbutton_Click_1(object sender, EventArgs e)
         {
-            setup.Show();
+            setup.ShowDialog();
             startButton.Enabled = true;
         }
 
@@ -611,6 +623,21 @@ namespace Program4_PressYourLuck
                 {
                     player3.updateCash(0);
                 }
+
+                //whammy gif
+                pictureBox19.ImageLocation = whammyImg;
+
+                //get file corresponding to board value
+                audioFile = (audioPath + "\\" + Int32.Parse(regValue.Match
+                    (imageNames.ElementAt(imageList.IndexOf(i)).
+                    ToString()).ToString()) + ".wav");
+
+                playSound(audioFile);
+
+                //pause to play annimation
+                Thread.Sleep(5000);
+
+                pictureBox19.ImageLocation = gamebordCenterImg;
             }
             //if regular money image
             else
@@ -620,18 +647,40 @@ namespace Program4_PressYourLuck
                     player1.updateCash(Int32.Parse(regValue.Match
                     (imageNames.ElementAt(imageList.IndexOf(i)).
                     ToString()).ToString()));
+
+                    ///get file corresponding to board value
+                    audioFile = (audioPath +"\\"+ Int32.Parse(regValue.Match
+                    (imageNames.ElementAt(imageList.IndexOf(i)).
+                    ToString()).ToString()) + ".wav");
+
+                    playSound(audioFile);
+
                 }
                 else if (who == player2)
                 {
                     player2.updateCash(Int32.Parse(regValue.Match
                      (imageNames.ElementAt(imageList.IndexOf(i)).
                      ToString()).ToString()));
+
+                    //get file corresponding to board value
+                    audioFile = (audioPath + "\\" + Int32.Parse(regValue.Match
+                    (imageNames.ElementAt(imageList.IndexOf(i)).
+                    ToString()).ToString()) + ".wav");
+
+                    playSound(audioFile);
                 }
                 else if (who == player3)
                 {
                     player3.updateCash(Int32.Parse(regValue.Match
                     (imageNames.ElementAt(imageList.IndexOf(i)).
                     ToString()).ToString()));
+
+                    //get file corresponding to board value
+                    audioFile = (audioPath + "\\" + Int32.Parse(regValue.Match
+                    (imageNames.ElementAt(imageList.IndexOf(i)).
+                    ToString()).ToString()) + ".wav");
+
+                    playSound(audioFile);
                 }
             }
         }
@@ -684,17 +733,17 @@ namespace Program4_PressYourLuck
                 }
                 else
                 {
-                    if (player1.Spins == 0)
+                    if (player1.Spins == 0 && player1GroupBox.Visible == true)
                     {
                         endround = true;
                         numrounds++;
                     }
-                    else if (player2.Spins == 0)
+                    else if (player2.Spins == 0 && player2GroupBox.Visible == true)
                     {
                         endround = true;
                         numrounds++;
                     }
-                    else if (player3.Spins == 0)
+                    else if (player3.Spins == 0 && player3GroupBox.Visible == true)
                     {
                         endround = true;
                         numrounds++;
@@ -740,5 +789,16 @@ namespace Program4_PressYourLuck
                 }
             }
         }
+
+        //Purpose: plays a sound 
+        //Requires: path to sound
+        //Returns: sound
+        private void playSound(string path)
+        {
+            SoundPlayer player = new SoundPlayer(path);
+            player.Load();
+            player.Play();
+        }
+
     }
 }
