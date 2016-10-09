@@ -72,7 +72,9 @@ namespace Program4_PressYourLuck
         //audio file path
         private String audioPath = @"..\..\sounds";
         //regular expression which determines the value from the image names
-        private Regex regValue = new Regex(@"[0-9]*0", RegexOptions.IgnoreCase);
+        private Regex regValue = new Regex(@"([0-9][0-9][0-9][0-9])");
+        //current picture box
+        PictureBox currPic;
 
 
         public PressYourLuckGameForm()
@@ -576,9 +578,6 @@ namespace Program4_PressYourLuck
         private void randomCursor()
         {
             int numOfCursChanges = 0;
-
-            //set currPic to a random picturebox
-            PictureBox currPic = pictureBoxes[rand.Next(0, pictureBoxes.Count)];
 
             do
             {

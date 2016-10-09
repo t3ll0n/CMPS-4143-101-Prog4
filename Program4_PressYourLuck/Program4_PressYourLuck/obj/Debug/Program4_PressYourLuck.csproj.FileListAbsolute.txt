@@ -1,12 +1,3 @@
-C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\bin\Debug\Program4_PressYourLuck.exe.config
-C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\bin\Debug\Program4_PressYourLuck.exe
-C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\bin\Debug\Program4_PressYourLuck.pdb
-C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.csprojResolveAssemblyReference.cache
-C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.PressYourLuckGameForm.resources
-C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.Properties.Resources.resources
-C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.csproj.GenerateResource.Cache
-C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.exe
-C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.pdb
 E:\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\bin\Debug\Program4_PressYourLuck.exe
 E:\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\bin\Debug\Program4_PressYourLuck.exe.config
 E:\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\bin\Debug\Program4_PressYourLuck.pdb
@@ -18,8 +9,6 @@ E:\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\P
 E:\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.exe
 E:\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.pdb
 E:\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.GameTrivia.resources
-C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.GameTrivia.resources
-C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.Setup.resources
 C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\Program4_PressYourLuck\Program4_PressYourLuck\bin\Debug\Program4_PressYourLuck.exe.config
 C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.exe
 C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.pdb
@@ -42,3 +31,14 @@ C:\Users\T3L\Desktop\CMPS-4143-101-Prog4-master\Program4_PressYourLuck\Program4_
 C:\Users\T3L\Desktop\CMPS-4143-101-Prog4-master\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.Properties.Resources.resources
 C:\Users\T3L\Desktop\CMPS-4143-101-Prog4-master\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.Setup.resources
 C:\Users\T3L\Desktop\CMPS-4143-101-Prog4-master\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.csproj.GenerateResource.Cache
+C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\bin\Debug\Program4_PressYourLuck.exe.config
+C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\bin\Debug\Program4_PressYourLuck.exe
+C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\bin\Debug\Program4_PressYourLuck.pdb
+C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.GameTrivia.resources
+C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.PressYourLuckGameForm.resources
+C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.Properties.Resources.resources
+C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.Setup.resources
+C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.csproj.GenerateResource.Cache
+C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.exe
+C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.pdb
+C:\Users\T3L\Dropbox\MSU\CMPS\4143\Program4_PressYourLuck\CMPS-4143-101-Prog4\Program4_PressYourLuck\Program4_PressYourLuck\obj\Debug\Program4_PressYourLuck.csprojResolveAssemblyReference.cache
