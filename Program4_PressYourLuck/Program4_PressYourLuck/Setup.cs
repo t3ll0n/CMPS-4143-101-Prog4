@@ -17,8 +17,8 @@ namespace Program4_PressYourLuck
 {
     public partial class Setup : Form
     {
-       private int numpeople;
-       private string file_path;
+        private int numpeople;
+        private string file_path;
 
         public Setup()
         {
@@ -48,7 +48,7 @@ namespace Program4_PressYourLuck
             }
         }
 
-        
+
 
         public string File_Path
         {
@@ -66,13 +66,22 @@ namespace Program4_PressYourLuck
 
         public void getNumPlayers(ref int numplayers)
         {
-            numplayers =  numpeople;
+            numplayers = numpeople;
         }
 
         private void okbutton_Click(object sender, EventArgs e)
         {
             getNumPlayers(ref numpeople);
             this.Close();
+        }
+
+        public int Numpeople
+        {
+            //returns number of spins
+            get
+            {
+                return numpeople;
+            }
         }
     }
 }

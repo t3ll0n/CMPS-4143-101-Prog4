@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Program4_PressYourLuck
 {
-    class QuestionAnswer 
+    class QuestionAnswer
     {
         //private variables
         private string answer;

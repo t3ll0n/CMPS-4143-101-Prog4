@@ -1,5 +1,6 @@
 ﻿//Tellon Smith and Johann Redhead
 //GameTrivia.cs class
+//information for trivia portion
 
 using System;
 using System.Collections.Generic;
@@ -63,7 +64,7 @@ namespace Program4_PressYourLuck
         //Purpose: gets file path
         //Requires: file path
         //Returns: none
-        public void getfilePath(string file)
+        public void getFilePath(string file)
         {
             numques = readFile(file);
             if (numques < 1)

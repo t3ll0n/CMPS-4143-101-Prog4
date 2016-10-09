@@ -85,9 +85,7 @@
     <EmbeddedResource Include="images\gameboard\0400.png" />
     <EmbeddedResource Include="images\gameboard\0450.png" />
     <EmbeddedResource Include="images\gameboard\0470.png" />
-    <EmbeddedResource Include="images\gameboard\0475.png" />
     <EmbeddedResource Include="images\gameboard\0500.png" />
-    <EmbeddedResource Include="images\gameboard\0525.png" />
     <EmbeddedResource Include="images\gameboard\0550.png" />
     <EmbeddedResource Include="images\gameboard\0600.png" />
     <EmbeddedResource Include="images\gameboard\0650.png" />
@@ -121,7 +119,6 @@
     <EmbeddedResource Include="Setup.resx">
       <DependentUpon>Setup.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -139,16 +136,13 @@
     <None Include="images\PressYourLuck.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="tollbox.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="images.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="images\PressYourLuck.gif" />
   </ItemGroup>
   <ItemGroup>
     <None Include="images\whammy.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\config.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.path_label = new System.Windows.Forms.Label();
             this.choosefile = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.numplayer = new System.Windows.Forms.ComboBox();
             this.okbutton = new System.Windows.Forms.Button();
-            this.path_label = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -44,10 +44,17 @@
             this.groupBox1.Controls.Add(this.choosefile);
             this.groupBox1.Location = new System.Drawing.Point(40, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(233, 77);
+            this.groupBox1.Size = new System.Drawing.Size(233, 107);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "File Setup";
+            // 
+            // path_label
+            // 
+            this.path_label.Location = new System.Drawing.Point(6, 47);
+            this.path_label.Name = "path_label";
+            this.path_label.Size = new System.Drawing.Size(221, 57);
+            this.path_label.TabIndex = 2;
             // 
             // choosefile
             // 
@@ -93,13 +100,6 @@
             this.okbutton.Text = "OK";
             this.okbutton.UseVisualStyleBackColor = true;
             this.okbutton.Click += new System.EventHandler(this.okbutton_Click);
-            // 
-            // path_label
-            // 
-            this.path_label.Location = new System.Drawing.Point(59, 47);
-            this.path_label.Name = "path_label";
-            this.path_label.Size = new System.Drawing.Size(87, 18);
-            this.path_label.TabIndex = 2;
             // 
             // Setup
             // 

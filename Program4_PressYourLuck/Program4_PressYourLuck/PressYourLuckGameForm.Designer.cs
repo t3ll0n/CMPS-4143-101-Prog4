@@ -46,6 +46,12 @@
             this.player3SpinsTextBox = new System.Windows.Forms.TextBox();
             this.player3ScoreLabel = new System.Windows.Forms.Label();
             this.player3SpinsLabel = new System.Windows.Forms.Label();
+            this.settingbutton = new System.Windows.Forms.Button();
+            this.pass_spins = new System.Windows.Forms.Button();
+            this.round_label = new System.Windows.Forms.Label();
+            this.winner_label = new System.Windows.Forms.Label();
+            this.startstop_spin = new System.Windows.Forms.Button();
+            this.current_spinner = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -65,12 +71,6 @@
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.settingbutton = new System.Windows.Forms.Button();
-            this.pass_spins = new System.Windows.Forms.Button();
-            this.round_label = new System.Windows.Forms.Label();
-            this.winner_label = new System.Windows.Forms.Label();
-            this.startstop_spin = new System.Windows.Forms.Button();
-            this.current_spinner = new System.Windows.Forms.Label();
             this.player1GroupBox.SuspendLayout();
             this.player2GroupBox.SuspendLayout();
             this.player3GroupBox.SuspendLayout();
@@ -292,6 +292,76 @@
             this.player3SpinsLabel.TabIndex = 0;
             this.player3SpinsLabel.Text = "Spins:";
             // 
+            // settingbutton
+            // 
+            this.settingbutton.AutoSize = true;
+            this.settingbutton.BackgroundImage = global::Program4_PressYourLuck.Properties.Resources.config;
+            this.settingbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.settingbutton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.settingbutton.Location = new System.Drawing.Point(754, 484);
+            this.settingbutton.Name = "settingbutton";
+            this.settingbutton.Size = new System.Drawing.Size(75, 75);
+            this.settingbutton.TabIndex = 45;
+            this.settingbutton.UseVisualStyleBackColor = true;
+            this.settingbutton.Click += new System.EventHandler(this.settingbutton_Click_1);
+            // 
+            // pass_spins
+            // 
+            this.pass_spins.BackColor = System.Drawing.Color.Blue;
+            this.pass_spins.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pass_spins.Enabled = false;
+            this.pass_spins.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pass_spins.ForeColor = System.Drawing.Color.Yellow;
+            this.pass_spins.Location = new System.Drawing.Point(749, 398);
+            this.pass_spins.Name = "pass_spins";
+            this.pass_spins.Size = new System.Drawing.Size(80, 80);
+            this.pass_spins.TabIndex = 46;
+            this.pass_spins.Text = "PASS SPINS";
+            this.pass_spins.UseVisualStyleBackColor = false;
+            this.pass_spins.Click += new System.EventHandler(this.pass_spins_Click);
+            // 
+            // round_label
+            // 
+            this.round_label.Font = new System.Drawing.Font("Baskerville Old Face", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.round_label.ForeColor = System.Drawing.Color.IndianRed;
+            this.round_label.Location = new System.Drawing.Point(528, 356);
+            this.round_label.Name = "round_label";
+            this.round_label.Size = new System.Drawing.Size(301, 39);
+            this.round_label.TabIndex = 47;
+            // 
+            // winner_label
+            // 
+            this.winner_label.Font = new System.Drawing.Font("Baskerville Old Face", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.winner_label.ForeColor = System.Drawing.Color.IndianRed;
+            this.winner_label.Location = new System.Drawing.Point(414, 502);
+            this.winner_label.Name = "winner_label";
+            this.winner_label.Size = new System.Drawing.Size(315, 53);
+            this.winner_label.TabIndex = 48;
+            // 
+            // startstop_spin
+            // 
+            this.startstop_spin.BackColor = System.Drawing.Color.Blue;
+            this.startstop_spin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.startstop_spin.Enabled = false;
+            this.startstop_spin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startstop_spin.ForeColor = System.Drawing.Color.Yellow;
+            this.startstop_spin.Location = new System.Drawing.Point(662, 398);
+            this.startstop_spin.Name = "startstop_spin";
+            this.startstop_spin.Size = new System.Drawing.Size(80, 80);
+            this.startstop_spin.TabIndex = 49;
+            this.startstop_spin.Text = "START SPIN";
+            this.startstop_spin.UseVisualStyleBackColor = false;
+            this.startstop_spin.Click += new System.EventHandler(this.startstop_spin_Click);
+            // 
+            // current_spinner
+            // 
+            this.current_spinner.Font = new System.Drawing.Font("Baskerville Old Face", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.current_spinner.ForeColor = System.Drawing.Color.IndianRed;
+            this.current_spinner.Location = new System.Drawing.Point(414, 439);
+            this.current_spinner.Name = "current_spinner";
+            this.current_spinner.Size = new System.Drawing.Size(242, 39);
+            this.current_spinner.TabIndex = 50;
+            // 
             // pictureBox7
             // 
             this.pictureBox7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -481,76 +551,6 @@
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox10.TabIndex = 29;
             this.pictureBox10.TabStop = false;
-            // 
-            // settingbutton
-            // 
-            this.settingbutton.AutoSize = true;
-            this.settingbutton.BackgroundImage = global::Program4_PressYourLuck.Properties.Resources.images;
-            this.settingbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.settingbutton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.settingbutton.Location = new System.Drawing.Point(754, 484);
-            this.settingbutton.Name = "settingbutton";
-            this.settingbutton.Size = new System.Drawing.Size(75, 75);
-            this.settingbutton.TabIndex = 45;
-            this.settingbutton.UseVisualStyleBackColor = true;
-            this.settingbutton.Click += new System.EventHandler(this.settingbutton_Click_1);
-            // 
-            // pass_spins
-            // 
-            this.pass_spins.BackColor = System.Drawing.Color.Blue;
-            this.pass_spins.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pass_spins.Enabled = false;
-            this.pass_spins.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pass_spins.ForeColor = System.Drawing.Color.Yellow;
-            this.pass_spins.Location = new System.Drawing.Point(749, 398);
-            this.pass_spins.Name = "pass_spins";
-            this.pass_spins.Size = new System.Drawing.Size(80, 80);
-            this.pass_spins.TabIndex = 46;
-            this.pass_spins.Text = "PASS SPINS";
-            this.pass_spins.UseVisualStyleBackColor = false;
-            this.pass_spins.Click += new System.EventHandler(this.pass_spins_Click);
-            // 
-            // round_label
-            // 
-            this.round_label.Font = new System.Drawing.Font("Baskerville Old Face", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.round_label.ForeColor = System.Drawing.Color.IndianRed;
-            this.round_label.Location = new System.Drawing.Point(528, 356);
-            this.round_label.Name = "round_label";
-            this.round_label.Size = new System.Drawing.Size(301, 39);
-            this.round_label.TabIndex = 47;
-            // 
-            // winner_label
-            // 
-            this.winner_label.Font = new System.Drawing.Font("Baskerville Old Face", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.winner_label.ForeColor = System.Drawing.Color.IndianRed;
-            this.winner_label.Location = new System.Drawing.Point(414, 502);
-            this.winner_label.Name = "winner_label";
-            this.winner_label.Size = new System.Drawing.Size(315, 53);
-            this.winner_label.TabIndex = 48;
-            // 
-            // startstop_spin
-            // 
-            this.startstop_spin.BackColor = System.Drawing.Color.Blue;
-            this.startstop_spin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.startstop_spin.Enabled = false;
-            this.startstop_spin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startstop_spin.ForeColor = System.Drawing.Color.Yellow;
-            this.startstop_spin.Location = new System.Drawing.Point(662, 398);
-            this.startstop_spin.Name = "startstop_spin";
-            this.startstop_spin.Size = new System.Drawing.Size(80, 80);
-            this.startstop_spin.TabIndex = 49;
-            this.startstop_spin.Text = "START SPIN";
-            this.startstop_spin.UseVisualStyleBackColor = false;
-            this.startstop_spin.Click += new System.EventHandler(this.startstop_spin_Click);
-            // 
-            // current_spinner
-            // 
-            this.current_spinner.Font = new System.Drawing.Font("Baskerville Old Face", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.current_spinner.ForeColor = System.Drawing.Color.IndianRed;
-            this.current_spinner.Location = new System.Drawing.Point(414, 439);
-            this.current_spinner.Name = "current_spinner";
-            this.current_spinner.Size = new System.Drawing.Size(242, 39);
-            this.current_spinner.TabIndex = 50;
             // 
             // PressYourLuckGameForm
             // 

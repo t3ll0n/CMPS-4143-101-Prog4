@@ -35,7 +35,7 @@ namespace Program4_PressYourLuck
             else
             {
                 cash += x;
-            }            
+            }
         }
 
         public void updateSpins(int x)
@@ -63,9 +63,9 @@ namespace Program4_PressYourLuck
             //Sets spins to vlaue if greater than 0
             set
             {
-                this.spins = value < 0? this.spins:value;
+                this.spins = value < 0 ? this.spins : value;
             }
-            
+
         }
 
         //variables
