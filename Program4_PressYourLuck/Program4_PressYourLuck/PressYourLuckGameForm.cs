@@ -204,14 +204,21 @@ namespace Program4_PressYourLuck
                 Application.Exit(); //close the program
             }
 
-            //activate score menu or correspondiing number of players
-            if (numplayers == 2)
+            //activate score menu or corresponding number of players
+            if (numplayers == 1)
             {
+                player1GroupBox.Visible = true;
+            }
+
+            else if (numplayers == 2)
+            {
+                player1GroupBox.Visible = true;
                 player2GroupBox.Visible = true;
             }
 
             else if (numplayers == 3)
             {
+                player1GroupBox.Visible = true;
                 player2GroupBox.Visible = true;
                 player3GroupBox.Visible = true;
             }
