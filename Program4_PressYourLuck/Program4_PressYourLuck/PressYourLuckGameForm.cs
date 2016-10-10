@@ -41,7 +41,7 @@ namespace Program4_PressYourLuck
         int numplayers = 0;
         int numrounds = 1;
         bool endround = false;
-        int picindex = 0;
+        int pictureIndex = 0;
         bool stop = false;
         Setup setup = new Setup(); //create instance of setup form
 
@@ -74,7 +74,7 @@ namespace Program4_PressYourLuck
         //regular expression which determines the value from the image names
         private Regex regValue = new Regex(@"([0-9][0-9][0-9][0-9])");
         //current picture box
-        PictureBox currPic;
+        PictureBox currentPic;
 
 
         public PressYourLuckGameForm()
@@ -143,7 +143,7 @@ namespace Program4_PressYourLuck
             winner_label.Text = "";
             numrounds = 1;
             endround = false;
-            picindex = 0;
+            pictureIndex = 0;
             playerInit();
             stop = false;
         }
@@ -584,21 +584,22 @@ namespace Program4_PressYourLuck
         //Returns: none
         private void randomCursor()
         {
-            int numOfCursChanges = 0;
+            int cursorChanges = 0;
 
             do
             {
-                numOfCursChanges++;
+                cursorChanges++;
 
-                //randomly select a picturebox on the board
-                currPic = pictureBoxes[rand.Next(0, pictureBoxes.Count)];
+                //randomly selects a picturebox on the gameboard
+                currentPic = pictureBoxes[rand.Next(0, pictureBoxes.Count)];
 
-                currPic.BackColor = Color.Yellow; //highlight image
+                //highlight the selected image by changing the background image to yellow
+                currentPic.BackColor = Color.Yellow; 
 
-                //randomize images in pictureboxes every other cursor change
-                if (numOfCursChanges == 2)
+                //randomizes images in pictureboxes after two cursor changese
+                if (cursorChanges == 2)
                 {
-                    numOfCursChanges = 0;
+                    cursorChanges = 0;
 
                     foreach (PictureBox p in pictureBoxes)
                     {
@@ -606,34 +607,33 @@ namespace Program4_PressYourLuck
                         {
                             p.Invoke((Action)(() =>
                             {
-                                p.Image =
-      imageList.ElementAt(rand.Next(0,
-      imageList.Count));
+                                p.Image = imageList.ElementAt(rand.Next(0,
+                                    imageList.Count));
                             }));
                         }
                     }
                 }
-
-                System.Threading.Thread.Sleep(350); //Pause
-
-                currPic.BackColor = Color.Transparent; //de-highlight image
+                //Pause
+                System.Threading.Thread.Sleep(400);
+                //return background color to normal
+                currentPic.BackColor = Color.Transparent; 
             } while (!stop);
 
-            //keep current picture highlighted
-            currPic.BackColor = Color.Yellow;
+            //keep the current picture box highlighted
+            currentPic.BackColor = Color.Yellow;
 
-            //get chosen picture's value
-            addValue(currPic.Image);
+            //get value of picture box
+            addCashValue(currentPic.Image);
 
-            //saving currPic index
-            picindex = pictureBoxes.IndexOf(currPic);
+            //keep track of current picutre index
+            pictureIndex = pictureBoxes.IndexOf(currentPic);
         }
 
 
-        //Purpose: calls function to start asking questions
-        //Requires: none
+        //Purpose: adds the equivalent cash value to the player
+        //Requires: image of current picture box
         //Returns: none
-        private void addValue(Image i)
+        private void addCashValue(Image i)
         {
             //if image on board is a whammy
             if (Int32.Parse(regValue.Match(imageNames.ElementAt
@@ -652,7 +652,7 @@ namespace Program4_PressYourLuck
                     player3.updateCash(0);
                 }
 
-                //whammy gif
+                //show whammy gif
                 pictureBox19.ImageLocation = whammyImg;
 
                 //get file corresponding to board value
@@ -665,6 +665,7 @@ namespace Program4_PressYourLuck
                 //pause to play annimation
                 Thread.Sleep(5000);
 
+                //return to regular gameboard image
                 pictureBox19.ImageLocation = gamebordCenterImg;
             }
             //if regular money image
@@ -723,7 +724,7 @@ namespace Program4_PressYourLuck
                 audioFile = (audioPath + "\\" + "board.wav");
                 playSound(audioFile);
                 startRound();
-                pictureBoxes.ElementAt(picindex).BackColor = Color.Transparent;
+                pictureBoxes.ElementAt(pictureIndex).BackColor = Color.Transparent;
                 //change button text to stop for user to stop spinning board
                 startstop_spin.Text = "STOP SPIN";
 
