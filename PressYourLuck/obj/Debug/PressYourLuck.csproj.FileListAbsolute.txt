@@ -1,0 +1,12 @@
+C:\Projects\CMPS\PressYourLuck\PressYourLuck\bin\Debug\Program4_PressYourLuck.exe.config
+C:\Projects\CMPS\PressYourLuck\PressYourLuck\bin\Debug\Program4_PressYourLuck.exe
+C:\Projects\CMPS\PressYourLuck\PressYourLuck\bin\Debug\Program4_PressYourLuck.pdb
+C:\Projects\CMPS\PressYourLuck\PressYourLuck\obj\Debug\PressYourLuck.csprojResolveAssemblyReference.cache
+C:\Projects\CMPS\PressYourLuck\PressYourLuck\obj\Debug\Program4_PressYourLuck.GameTrivia.resources
+C:\Projects\CMPS\PressYourLuck\PressYourLuck\obj\Debug\Program4_PressYourLuck.PressYourLuckGameForm.resources
+C:\Projects\CMPS\PressYourLuck\PressYourLuck\obj\Debug\Program4_PressYourLuck.Properties.Resources.resources
+C:\Projects\CMPS\PressYourLuck\PressYourLuck\obj\Debug\Program4_PressYourLuck.Setup.resources
+C:\Projects\CMPS\PressYourLuck\PressYourLuck\obj\Debug\PressYourLuck.csproj.GenerateResource.cache
+C:\Projects\CMPS\PressYourLuck\PressYourLuck\obj\Debug\PressYourLuck.csproj.CoreCompileInputs.cache
+C:\Projects\CMPS\PressYourLuck\PressYourLuck\obj\Debug\Program4_PressYourLuck.exe
+C:\Projects\CMPS\PressYourLuck\PressYourLuck\obj\Debug\Program4_PressYourLuck.pdb
